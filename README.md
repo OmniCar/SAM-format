@@ -40,6 +40,7 @@ There are 3 formatters:
 `showTime` (true | **false**) append time in formatted date
 
 `rawFormat` (string) pass date format string to format with
+
 _example: `formatDate(new Date(2018-01-23), {rawFormat: 'YYYYMMDD'})` // '20189123'_
 
 ## Tests
