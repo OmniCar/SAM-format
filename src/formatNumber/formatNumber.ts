@@ -1,21 +1,17 @@
-import { configuration } from './init'
+import { defaults } from '../init/init'
+import { currentLocale } from '../init/init'
 import format, { IFormatNumberOptions } from 'format-number'
-
-export type NumberType = 'MILEAGE' | 'CURRENCY'
-export type SymbolDisplayType = 'APPEND' | 'PREPEND' | 'NONE'
-
-export interface IFormatNumberOpts {
-  showDecimals?: boolean
-  numberType?: NumberType
-  symbolDisplayType?: SymbolDisplayType
-}
+import { IFormatNumberOptions as ISamFormatNumberOptions } from './IFormatNumberOptions'
 /**
  * Get formatted number
  * @param number
  * @param opts
  */
-export function formatNumber(number: number, opts?: IFormatNumberOpts): string {
-  if (!configuration.isInitialized) {
+export function formatNumber(
+  number: number,
+  opts?: ISamFormatNumberOptions,
+): string {
+  if (!defaults.isInitialized) {
     throw Error('Formatter not initialized')
   }
 
@@ -27,7 +23,10 @@ export function formatNumber(number: number, opts?: IFormatNumberOpts): string {
  * @param number
  * @param opts
  */
-function getFormattedNumber(number: number, opts?: IFormatNumberOpts): string {
+function getFormattedNumber(
+  number: number,
+  opts?: ISamFormatNumberOptions,
+): string {
   const {
     showDecimals = false,
     numberType = 'CURRENCY',
@@ -37,13 +36,13 @@ function getFormattedNumber(number: number, opts?: IFormatNumberOpts): string {
 
   let formatted = ''
 
-  if (configuration.separators) {
+  if (currentLocale.separators) {
     // config format-number
     const formatConf: IFormatNumberOptions = {}
 
     // get right section of configuration
     const type: string = (numberType as string).toLowerCase()
-    const config = (configuration as any)[type] // cast to any because 'type' is dynamic
+    const config = (currentLocale as any)[type] // cast to any because 'type' is dynamic
     const symbol: string = config.name.short
 
     switch (symbolDisplayType) {
@@ -60,8 +59,8 @@ function getFormattedNumber(number: number, opts?: IFormatNumberOpts): string {
     }
 
     // separators
-    formatConf.integerSeparator = configuration.separators.thousand
-    formatConf.decimal = configuration.separators.decimal
+    formatConf.integerSeparator = currentLocale.separators.thousand
+    formatConf.decimal = currentLocale.separators.decimal
 
     formatted = format(formatConf)(number)
   }

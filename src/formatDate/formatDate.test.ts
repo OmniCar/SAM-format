@@ -1,5 +1,5 @@
 import { formatDate } from './formatDate'
-import { init } from './init'
+import { init } from '../init/init'
 
 describe('initialize formatter', () => {
   test('should throw error if not initialized before usage', () => {

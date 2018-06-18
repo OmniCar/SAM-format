@@ -1,16 +1,18 @@
-export default {
+import { ILocaleConfiguration } from './ILocaleConfiguration'
+
+const locale: ILocaleConfiguration = {
   currency: {
     symbol: 'SEK',
     name: {
-      long: 'sek kroner',
-      short: 'sekr.',
+      long: 'kroner',
+      short: 'kr.',
     },
     numDecimals: 2,
   },
   date: {
     format: 'YYYY/MM/DD',
     name: {
-      long: 'klokken',
+      long: 'klocka',
       short: 'kl.',
     },
   },
@@ -27,3 +29,5 @@ export default {
     minute: ':',
   },
 }
+
+export default locale

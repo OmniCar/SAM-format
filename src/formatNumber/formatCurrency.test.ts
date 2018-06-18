@@ -1,5 +1,5 @@
 import { formatCurrency } from './formatCurrency'
-import { init, configuration, IsoLocale, ISamFormatOptions } from './init'
+import { init } from '../init/init'
 
 describe('formatCurrency() danish', () => {
   beforeAll(() => {

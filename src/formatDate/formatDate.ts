@@ -1,22 +1,14 @@
-import { configuration } from './init'
+import { defaults } from '../init/init'
+import { currentLocale } from '../init/init'
 import { format } from 'date-fns'
 
-/**
- * Options for formatting date
- * @showTime: append the time (hh:mm) after the date
- * @rawFormat: display date in a custom format
- */
-export interface IFormatDateOpts {
-  showTime?: boolean
-  rawFormat?: string
-}
 /**
  * Get formatted date
  * @param date
  * @param opts
  */
 export function formatDate(date: Date, opts?: IFormatDateOpts): string {
-  if (!configuration.isInitialized) {
+  if (!defaults.isInitialized) {
     throw Error('Formatter not initialized')
   }
 
@@ -33,12 +25,12 @@ function getFormattedDate(date: Date, opts?: IFormatDateOpts): string {
   let formatted = ''
 
   // load locale data
-  const { date: dateConfig, separators } = configuration
+  const { date: dateConfig, separators } = currentLocale
 
   if (dateConfig && separators) {
-    const localeShort = configuration.isoName.substring(
+    const localeShort = defaults.isoName.substring(
       0,
-      configuration.isoName.indexOf('-'),
+      defaults.isoName.indexOf('-'),
     )
     let locale
     try {
@@ -50,11 +42,11 @@ function getFormattedDate(date: Date, opts?: IFormatDateOpts): string {
 
     // format time
     const minuteSep = separators.minute
-    const timeFormat = ` ${dateConfig.name.short} hh${minuteSep}mm`
+    const timeFormat = `${dateConfig.name.short} hh${minuteSep}mm`
 
     formatted = format(
       date,
-      rawFormat || `${dateConfig.format}${showTime ? timeFormat : ''}`,
+      rawFormat || `${dateConfig.format}${showTime ? ' ' + timeFormat : ''}`,
       {
         locale,
       },

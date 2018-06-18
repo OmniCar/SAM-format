@@ -1,5 +1,5 @@
-import { formatCurrency } from './formatCurrency'
-import { init, configuration } from './init'
+import { formatCurrency } from '../formatNumber/formatCurrency'
+import { init, defaults } from './init'
 
 describe('initFormat()', () => {
   test('should throw error if not initialized before usage', () => {
@@ -16,7 +16,7 @@ describe('initFormat()', () => {
     // act
     init()
     // assert
-    expect(configuration.isoName).toEqual('da-DK')
+    expect(defaults.isoName).toEqual('da-DK')
   })
   test('should set locale on initialization if found', () => {
     // arrange
@@ -24,6 +24,6 @@ describe('initFormat()', () => {
     // act
     init({ isoName })
     // assert
-    expect(configuration.isoName).toEqual(isoName)
+    expect(defaults.isoName).toEqual(isoName)
   })
 })

@@ -1,5 +1,4 @@
-import { formatPrice } from './formatPrice'
-import { init, configuration, IsoLocale, ISamFormatOptions } from './init'
+import { init } from '../init/init'
 import { formatNumber } from './formatNumber'
 import { ENGINE_METHOD_DIGESTS } from 'constants'
 

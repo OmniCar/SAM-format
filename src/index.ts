@@ -1,4 +1,4 @@
-export { formatDate } from './formatDate'
-export { formatMileage } from './formatMileage'
-export { formatCurrency } from './formatCurrency'
-export { init } from './init'
+export { formatDate } from './formatDate/formatDate'
+export { formatMileage } from './formatNumber/formatMileage'
+export { formatCurrency } from './formatNumber/formatCurrency'
+export { init } from './init/init'

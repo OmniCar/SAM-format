@@ -1,5 +1,5 @@
-import { formatMileage } from './formatMileage'
-import { init, configuration, IsoLocale, ISamFormatOptions } from './init'
+import { formatMileage } from '../formatNumber/FormatMileage'
+import { init } from '../init/init'
 
 describe('formatMileage() danish', () => {
   beforeAll(() => {

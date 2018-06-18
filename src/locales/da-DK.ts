@@ -1,4 +1,6 @@
-export default {
+import { ILocaleConfiguration } from './ILocaleConfiguration'
+
+const locale: ILocaleConfiguration = {
   currency: {
     symbol: 'DKK',
     name: {
@@ -27,3 +29,5 @@ export default {
     minute: '.',
   },
 }
+
+export default locale
