@@ -13,7 +13,7 @@ Where `#0.0.1` indicates the `Github` release tag.
 
 ## Usage
 
-First call the `init` function with the parameters that match your environment (dev/staging/prod etc.) or current needs.
+First call `init` to initialize formatters (locale data etc).
 
 These parameters are available:
 
