@@ -4,7 +4,6 @@ import { ISamFormatOptions } from './ISamFormatOptions'
 export let currentLocale: ILocaleConfiguration
 
 // default options
-// ofj: rename 'defaults'
 export let defaults: ISamFormatOptions = {
   isInitialized: false,
   isoName: 'da-DK',

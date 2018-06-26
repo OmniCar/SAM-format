@@ -1,11 +1,13 @@
-import { formatCurrency } from '../formatNumber/formatCurrency'
+import { formatCurrency } from '../formatNumber/formatters/formatCurrency'
 import { init, defaults } from './init'
 
 describe('initFormat()', () => {
-  test('should throw error if not initialized before usage', () => {
+  test('should throw error if locale not found', () => {
+    // arrange
+    // act
     // assert
-    expect(() => formatCurrency(0)).toThrow('Formatter not initialized')
   })
+
   test('should throw error if locale not found', () => {
     // assert
     expect(() => init({ isoName: 'xx-XX' })).toThrow(

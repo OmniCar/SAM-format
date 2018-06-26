@@ -1,13 +1,14 @@
 import { defaults } from '../init/init'
 import { currentLocale } from '../init/init'
 import { format } from 'date-fns'
+import { IFormatDateOptions } from './IFormatDateOptions'
 
 /**
  * Get formatted date
  * @param date
  * @param opts
  */
-export function formatDate(date: Date, opts?: IFormatDateOpts): string {
+export function formatDate(date: Date, opts?: IFormatDateOptions): string {
   if (!defaults.isInitialized) {
     throw Error('Formatter not initialized')
   }
@@ -20,7 +21,7 @@ export function formatDate(date: Date, opts?: IFormatDateOpts): string {
  * @param number
  * @param opts
  */
-function getFormattedDate(date: Date, opts?: IFormatDateOpts): string {
+function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
   const { showTime = false, rawFormat = undefined } = opts || {}
   let formatted = ''
 

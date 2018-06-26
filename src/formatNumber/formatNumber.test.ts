@@ -1,6 +1,5 @@
 import { init } from '../init/init'
 import { formatNumber } from './formatNumber'
-import { ENGINE_METHOD_DIGESTS } from 'constants'
 
 describe('formatNumber()', () => {
   test('should throw error if not initialized', () => {
@@ -36,16 +35,6 @@ describe('formatNumber()', () => {
     expect(result).toEqual(expected)
   })
 
-  test("should format 0 as '0,00' as default if 'showDecimals'", () => {
-    // arrange
-    const number = 0
-    const expected = '0,00'
-    // act
-    const result = formatNumber(number, { showDecimals: true })
-    // assert
-    expect(result).toEqual(expected)
-  })
-
   test("should format 1000 as '1.000,00' as default if 'showDecimals'", () => {
     // arrange
     const number = 1000
@@ -72,6 +61,26 @@ describe('formatNumber()', () => {
     const expected = 'kr. 100'
     // act
     const result = formatNumber(number, { symbolDisplayType: 'PREPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test("should format 0.5 as '0,50' as default", () => {
+    // arrange
+    const number = 0.5
+    const expected = '0,50'
+    // act
+    const result = formatNumber(number, { showDecimals: true })
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test("should format 10.5 as '10' if 'showDecimals = false'", () => {
+    // arrange
+    const number = 10.5
+    const expected = '10'
+    // act
+    const result = formatNumber(number, { showDecimals: false })
     // assert
     expect(result).toEqual(expected)
   })

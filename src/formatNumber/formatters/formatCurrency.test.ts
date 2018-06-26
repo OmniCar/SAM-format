@@ -1,5 +1,5 @@
 import { formatCurrency } from './formatCurrency'
-import { init } from '../init/init'
+import { init } from '../../init/init'
 
 describe('formatCurrency() danish', () => {
   beforeAll(() => {
@@ -22,10 +22,10 @@ describe('formatCurrency() swedish', () => {
     init({ isoName: 'sv-SE' })
   })
 
-  test("should format 0 to '0,00 sekr.' as default", () => {
+  test("should format 0 to '0,00 kr.' as default", () => {
     // arrange
     const number = 0
-    const expected = '0,00 sekr.'
+    const expected = '0,00 kr.'
     // act
     const result = formatCurrency(number)
     // assert

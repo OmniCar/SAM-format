@@ -1,18 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+var locale = {
     currency: {
         symbol: 'SEK',
         name: {
-            long: 'sek kroner',
-            short: 'sekr.',
+            long: 'kroner',
+            short: 'kr.',
         },
         numDecimals: 2,
     },
     date: {
         format: 'YYYY/MM/DD',
         name: {
-            long: 'klokken',
+            long: 'klocka',
             short: 'kl.',
         },
     },
@@ -29,3 +29,4 @@ exports.default = {
         minute: ':',
     },
 };
+exports.default = locale;

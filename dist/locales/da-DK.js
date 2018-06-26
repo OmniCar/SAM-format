@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+var locale = {
     currency: {
         symbol: 'DKK',
         name: {
@@ -29,3 +29,4 @@ exports.default = {
         minute: '.',
     },
 };
+exports.default = locale;

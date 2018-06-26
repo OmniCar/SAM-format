@@ -56,6 +56,8 @@ function getFormattedNumber(
 
     if (showDecimals) {
       formatConf.padRight = config.numDecimals
+    } else {
+      formatConf.truncate = 0
     }
 
     // separators

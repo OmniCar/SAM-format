@@ -1,11 +1,12 @@
-import { IFormatNumberOpts, formatNumber } from './formatNumber'
+import { formatNumber } from '../formatNumber'
+import { IFormatNumberOptions } from '../IFormatNumberOptions'
 
 export function formatCurrency(
   price: number,
   {
     showDecimals = true,
     symbolDisplayType = 'APPEND',
-  } = {} as IFormatNumberOpts,
+  } = {} as IFormatNumberOptions,
 ) {
   return formatNumber(price, {
     showDecimals,
