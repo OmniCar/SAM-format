@@ -14,13 +14,13 @@ describe('formatDate() default', () => {
   beforeAll(() => {
     init({ isoName: 'da-DK' })
   })
-  test('formatDate() should throw error if invalid date format', () => {
+  test('should throw error if invalid date format', () => {
     // arrange
     const date = new Date('aaa-aaa-aaa')
     // assert
     expect(() => formatDate(date)).toThrow('Invalid Date')
   })
-  test("formatDate() should prioritize 'rawFormat' if set", () => {
+  test("should prioritize 'rawFormat' if set", () => {
     // arrange
     const date = new Date('2018-06-12')
     const rawFormat = 'DD MMMM YYYY'
@@ -30,9 +30,18 @@ describe('formatDate() default', () => {
     // assert
     expect(result).toEqual(expected)
   })
-  test("formatDate() should append time if 'showTime' set", () => {
+  test("should append time if 'showTime' set", () => {
     // arrange
     const date = new Date('2018-06-12T12:00:00')
+    const expected = '12.06.2018 kl. 12.00'
+    // act
+    const result = formatDate(date, { showTime: true })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test('should accept string input', () => {
+    // arrange
+    const date = '2018-06-12T12:00:00'
     const expected = '12.06.2018 kl. 12.00'
     // act
     const result = formatDate(date, { showTime: true })

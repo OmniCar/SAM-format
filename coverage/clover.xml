@@ -1,76 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1530001647571" clover="3.2.0">
-  <project timestamp="1530001647571" name="All files">
-    <metrics statements="60" coveredstatements="58" conditionals="50" coveredconditionals="43" methods="7" coveredmethods="7" elements="117" coveredelements="108" complexity="0" loc="60" ncloc="60" packages="5" files="7" classes="7">
+<coverage generated="1530797649891" clover="3.2.0">
+  <project timestamp="1530797649891" name="All files">
+    <metrics statements="65" coveredstatements="61" conditionals="52" coveredconditionals="48" methods="7" coveredmethods="7" elements="124" coveredelements="116" complexity="0" loc="65" ncloc="65" packages="5" files="7" classes="7">
       <package name="formatDate">
-        <metrics statements="19" coveredstatements="17" conditionals="18" coveredconditionals="17" methods="2" coveredmethods="2"/>
+        <metrics statements="24" coveredstatements="20" conditionals="20" coveredconditionals="19" methods="2" coveredmethods="2"/>
         <file name="formatDate.ts" path="/Users/olejensen/WebstormProjects/SAM/SAM-format/src/formatDate/formatDate.ts">
-          <metrics statements="19" coveredstatements="17" conditionals="18" coveredconditionals="17" methods="2" coveredmethods="2"/>
-          <line num="11" count="10" type="cond" truecount="2" falsecount="0"/>
-          <line num="12" count="1" type="stmt"/>
-          <line num="15" count="9" type="stmt"/>
-          <line num="24" count="18" type="cond" truecount="6" falsecount="0"/>
-          <line num="25" count="9" type="stmt"/>
-          <line num="28" count="9" type="stmt"/>
-          <line num="30" count="9" type="cond" truecount="3" falsecount="1"/>
-          <line num="31" count="9" type="stmt"/>
-          <line num="35" count="9" type="stmt"/>
-          <line num="36" count="9" type="stmt"/>
-          <line num="37" count="9" type="stmt"/>
-          <line num="39" count="0" type="stmt"/>
-          <line num="40" count="0" type="stmt"/>
-          <line num="44" count="9" type="stmt"/>
-          <line num="45" count="9" type="stmt"/>
-          <line num="47" count="9" type="stmt"/>
-          <line num="57" count="9" type="cond" truecount="2" falsecount="0"/>
-          <line num="58" count="1" type="stmt"/>
-          <line num="61" count="8" type="stmt"/>
+          <metrics statements="24" coveredstatements="20" conditionals="20" coveredconditionals="19" methods="2" coveredmethods="2"/>
+          <line num="15" count="11" type="cond" truecount="2" falsecount="0"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="20" count="10" type="cond" truecount="2" falsecount="0"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="29" count="10" type="stmt"/>
+          <line num="38" count="20" type="cond" truecount="6" falsecount="0"/>
+          <line num="39" count="10" type="stmt"/>
+          <line num="42" count="10" type="stmt"/>
+          <line num="44" count="10" type="cond" truecount="3" falsecount="1"/>
+          <line num="45" count="10" type="stmt"/>
+          <line num="49" count="10" type="stmt"/>
+          <line num="50" count="10" type="stmt"/>
+          <line num="51" count="10" type="stmt"/>
+          <line num="53" count="0" type="stmt"/>
+          <line num="54" count="0" type="stmt"/>
+          <line num="58" count="10" type="stmt"/>
+          <line num="59" count="10" type="stmt"/>
+          <line num="61" count="10" type="stmt"/>
+          <line num="71" count="10" type="cond" truecount="2" falsecount="0"/>
+          <line num="72" count="1" type="stmt"/>
+          <line num="75" count="9" type="stmt"/>
         </file>
       </package>
       <package name="formatNumber">
         <metrics statements="25" coveredstatements="25" conditionals="16" coveredconditionals="15" methods="2" coveredmethods="2"/>
         <file name="formatNumber.ts" path="/Users/olejensen/WebstormProjects/SAM/SAM-format/src/formatNumber/formatNumber.ts">
           <metrics statements="25" coveredstatements="25" conditionals="16" coveredconditionals="15" methods="2" coveredmethods="2"/>
-          <line num="14" count="12" type="cond" truecount="2" falsecount="0"/>
+          <line num="14" count="18" type="cond" truecount="2" falsecount="0"/>
           <line num="15" count="1" type="stmt"/>
-          <line num="18" count="11" type="stmt"/>
-          <line num="30" count="11" type="cond" truecount="2" falsecount="0"/>
-          <line num="31" count="22" type="cond" truecount="2" falsecount="0"/>
-          <line num="32" count="22" type="cond" truecount="2" falsecount="0"/>
-          <line num="33" count="22" type="cond" truecount="2" falsecount="0"/>
-          <line num="37" count="11" type="stmt"/>
-          <line num="39" count="11" type="cond" truecount="1" falsecount="1"/>
-          <line num="41" count="11" type="stmt"/>
-          <line num="44" count="11" type="stmt"/>
-          <line num="45" count="11" type="stmt"/>
-          <line num="46" count="11" type="stmt"/>
-          <line num="48" count="11" type="stmt"/>
+          <line num="18" count="17" type="stmt"/>
+          <line num="30" count="17" type="cond" truecount="2" falsecount="0"/>
+          <line num="31" count="34" type="cond" truecount="2" falsecount="0"/>
+          <line num="32" count="34" type="cond" truecount="2" falsecount="0"/>
+          <line num="33" count="34" type="cond" truecount="2" falsecount="0"/>
+          <line num="37" count="17" type="stmt"/>
+          <line num="39" count="17" type="cond" truecount="1" falsecount="1"/>
+          <line num="41" count="17" type="stmt"/>
+          <line num="44" count="17" type="stmt"/>
+          <line num="45" count="17" type="stmt"/>
+          <line num="46" count="17" type="stmt"/>
+          <line num="48" count="17" type="stmt"/>
           <line num="50" count="5" type="stmt"/>
           <line num="51" count="5" type="stmt"/>
-          <line num="53" count="1" type="stmt"/>
-          <line num="54" count="1" type="stmt"/>
-          <line num="57" count="11" type="cond" truecount="2" falsecount="0"/>
-          <line num="58" count="4" type="stmt"/>
-          <line num="60" count="7" type="stmt"/>
-          <line num="64" count="11" type="stmt"/>
-          <line num="65" count="11" type="stmt"/>
-          <line num="67" count="11" type="stmt"/>
-          <line num="69" count="11" type="stmt"/>
+          <line num="53" count="3" type="stmt"/>
+          <line num="54" count="3" type="stmt"/>
+          <line num="57" count="17" type="cond" truecount="2" falsecount="0"/>
+          <line num="58" count="8" type="stmt"/>
+          <line num="60" count="9" type="stmt"/>
+          <line num="64" count="17" type="stmt"/>
+          <line num="65" count="17" type="stmt"/>
+          <line num="67" count="17" type="stmt"/>
+          <line num="69" count="17" type="stmt"/>
         </file>
       </package>
       <package name="formatNumber.formatters">
-        <metrics statements="6" coveredstatements="6" conditionals="12" coveredconditionals="7" methods="2" coveredmethods="2"/>
+        <metrics statements="6" coveredstatements="6" conditionals="12" coveredconditionals="10" methods="2" coveredmethods="2"/>
         <file name="formatCurrency.ts" path="/Users/olejensen/WebstormProjects/SAM/SAM-format/src/formatNumber/formatters/formatCurrency.ts">
-          <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="1" coveredmethods="1"/>
-          <line num="6" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="7" count="4" type="cond" truecount="1" falsecount="1"/>
-          <line num="8" count="4" type="cond" truecount="1" falsecount="1"/>
-          <line num="11" count="2" type="stmt"/>
+          <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
+          <line num="6" count="6" type="cond" truecount="2" falsecount="0"/>
+          <line num="7" count="12" type="cond" truecount="1" falsecount="1"/>
+          <line num="8" count="12" type="cond" truecount="2" falsecount="0"/>
+          <line num="11" count="6" type="stmt"/>
         </file>
         <file name="formatMileage.ts" path="/Users/olejensen/WebstormProjects/SAM/SAM-format/src/formatNumber/formatters/formatMileage.ts">
-          <metrics statements="2" coveredstatements="2" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
-          <line num="5" count="4" type="cond" truecount="4" falsecount="2"/>
-          <line num="6" count="2" type="stmt"/>
+          <metrics statements="2" coveredstatements="2" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
+          <line num="5" count="8" type="cond" truecount="5" falsecount="1"/>
+          <line num="6" count="4" type="stmt"/>
         </file>
       </package>
       <package name="init">
@@ -78,11 +83,11 @@
         <file name="init.ts" path="/Users/olejensen/WebstormProjects/SAM/SAM-format/src/init/init.ts">
           <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
           <line num="7" count="5" type="stmt"/>
-          <line num="18" count="11" type="cond" truecount="4" falsecount="0"/>
-          <line num="21" count="11" type="stmt"/>
-          <line num="22" count="11" type="stmt"/>
-          <line num="23" count="10" type="stmt"/>
-          <line num="24" count="10" type="stmt"/>
+          <line num="18" count="12" type="cond" truecount="4" falsecount="0"/>
+          <line num="21" count="12" type="stmt"/>
+          <line num="22" count="12" type="stmt"/>
+          <line num="23" count="11" type="stmt"/>
+          <line num="24" count="11" type="stmt"/>
           <line num="30" count="1" type="stmt"/>
           <line num="31" count="1" type="stmt"/>
         </file>

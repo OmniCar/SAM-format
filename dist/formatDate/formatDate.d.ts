@@ -4,4 +4,4 @@ import { IFormatDateOptions } from './IFormatDateOptions';
  * @param date
  * @param opts
  */
-export declare function formatDate(date: Date, opts?: IFormatDateOptions): string;
+export declare function formatDate(date: Date | string, opts?: IFormatDateOptions): string;

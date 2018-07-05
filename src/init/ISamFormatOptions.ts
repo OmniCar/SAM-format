@@ -1,4 +1,4 @@
-import { IsoLocale } from './IsoLocale'
+import { IsoLocale } from 'sam-types'
 
 // options to initialize formatter
 export interface ISamFormatOptions {

@@ -8,9 +8,22 @@ import { IFormatDateOptions } from './IFormatDateOptions'
  * @param date
  * @param opts
  */
-export function formatDate(date: Date, opts?: IFormatDateOptions): string {
+export function formatDate(
+  date: Date | string,
+  opts?: IFormatDateOptions,
+): string {
   if (!defaults.isInitialized) {
     throw Error('Formatter not initialized')
+  }
+
+  // attempt convert string to date
+  if (typeof date === 'string') {
+    try {
+      date = new Date(date)
+    } catch (error) {
+      console.error('Error while trying to convert date string to date', error)
+      throw error
+    }
   }
 
   return getFormattedDate(date, opts)
