@@ -8,11 +8,23 @@ import { IFormatNumberOptions as ISamFormatNumberOptions } from './IFormatNumber
  * @param opts
  */
 export function formatNumber(
-  number: number,
+  number: number | string,
   opts?: ISamFormatNumberOptions,
 ): string {
   if (!defaults.isInitialized) {
-    throw Error('Formatter not initialized')
+    const msg = 'Formatter not initialized'
+    console.error(msg)
+    throw Error(msg)
+  }
+
+  if (typeof number === 'string') {
+    number = parseFloat(number as string)
+  }
+
+  if (isNaN(number)) {
+    const msg = `${number} is not a number`
+    console.error(msg)
+    throw Error(msg)
   }
 
   return getFormattedNumber(number, opts)

@@ -15,7 +15,7 @@ describe('formatNumber()', () => {
     init({ isoName: 'da-DK' })
   })
 
-  test("should format 0 as '0' as default", () => {
+  test('should format 0 as "0" as default', () => {
     // arrange
     const number = 0
     const expected = '0'
@@ -25,7 +25,7 @@ describe('formatNumber()', () => {
     expect(result).toEqual(expected)
   })
 
-  test("should format 1000 as '1.000' as default", () => {
+  test('should format 1000 as "1.000" as default', () => {
     // arrange
     const number = 1000
     const expected = '1.000'
@@ -35,7 +35,7 @@ describe('formatNumber()', () => {
     expect(result).toEqual(expected)
   })
 
-  test("should format 1000 as '1.000,00' as default if 'showDecimals'", () => {
+  test('should format 1000 as "1.000,00" as default if \'showDecimals\'', () => {
     // arrange
     const number = 1000
     const expected = '1.000,00'
@@ -65,9 +65,9 @@ describe('formatNumber()', () => {
     expect(result).toEqual(expected)
   })
 
-  test("should format 0.5 as '0,50' as default", () => {
+  test('should format 0.5 as "0,50" as default', () => {
     // arrange
-    const number = 0.5
+    const number = '0.5'
     const expected = '0,50'
     // act
     const result = formatNumber(number, { showDecimals: true })
@@ -75,7 +75,7 @@ describe('formatNumber()', () => {
     expect(result).toEqual(expected)
   })
 
-  test("should format 10.5 as '10' if 'showDecimals = false'", () => {
+  test('should format 10.5 as "10" if \'showDecimals = false\'', () => {
     // arrange
     const number = 10.5
     const expected = '10'
@@ -83,5 +83,20 @@ describe('formatNumber()', () => {
     const result = formatNumber(number, { showDecimals: false })
     // assert
     expect(result).toEqual(expected)
+  })
+  test('should format string "10.5" as "10.5"', () => {
+    // arrange
+    const number = '10.5'
+    const expected = '10'
+    // act
+    const result = formatNumber(number, { showDecimals: false })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test('should throw error if string can not be converted to number', () => {
+    // assert
+    expect(() => {
+      formatNumber('aaa')
+    }).toThrow('')
   })
 })

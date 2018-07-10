@@ -1,9 +1,12 @@
 import { IFormatNumberOptions } from '../IFormatNumberOptions'
 import { formatNumber } from '../formatNumber'
 
-export function formatMileage(price: number, opts?: IFormatNumberOptions) {
+export function formatMileage(
+  mileage: number | string,
+  opts?: IFormatNumberOptions,
+) {
   const { showDecimals = false, symbolDisplayType = 'NONE' } = opts || {}
-  return formatNumber(price, {
+  return formatNumber(mileage, {
     numberType: 'MILEAGE',
     showDecimals,
     symbolDisplayType,
