@@ -2723,8 +2723,9 @@ safer-buffer@^2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
-"sam-types@file:../sam-types":
+sam-types@omnicar/sam-types#0.0.37:
   version "0.0.1"
+  resolved "https://codeload.github.com/omnicar/sam-types/tar.gz/c254305ca14fec12dfde49beeecae5647d856129"
 
 sane@^2.0.0:
   version "2.5.0"
