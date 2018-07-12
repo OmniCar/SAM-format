@@ -47,7 +47,7 @@ jobs:
             npm version ${CIRCLE_TAG} -f -no-git --no-git-tag-version
 
             echo "Update NPM"
-            npm publish .
+            npm publish --access public .
 workflows:
   version: 2
   build-deploy:
