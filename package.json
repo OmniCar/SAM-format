@@ -1,6 +1,5 @@
 {
-  "name": "sam-format",
-  "version": "0.0.1",
+  "name": "@omnicar/sam-format",
   "description": "Library for formatting different kinds of data according to type and locale",
   "author": "Omnicar A/S",
   "license": "MIT",
