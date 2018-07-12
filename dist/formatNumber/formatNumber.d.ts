@@ -4,4 +4,4 @@ import { IFormatNumberOptions as ISamFormatNumberOptions } from './IFormatNumber
  * @param number
  * @param opts
  */
-export declare function formatNumber(number: number, opts?: ISamFormatNumberOptions): string;
+export declare function formatNumber(number: number | string, opts?: ISamFormatNumberOptions): string;
