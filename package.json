@@ -44,7 +44,7 @@
   "dependencies": {
     "date-fns": "^1.29.0",
     "format-number": "^3.0.0",
-    "sam-types": "omnicar/sam-types#0.0.37",
+    "@omnicar/sam-types": "0.0.39",
     "tslib": "^1.9.0"
   }
 }

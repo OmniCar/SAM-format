@@ -1,4 +1,4 @@
-import { IsoLocale } from 'sam-types'
+import { IsoLocale } from '@omnicar/sam-types'
 
 // options to initialize formatter
 export interface ISamFormatOptions {

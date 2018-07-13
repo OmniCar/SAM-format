@@ -10,7 +10,17 @@ var format_number_1 = require("format-number");
  */
 function formatNumber(number, opts) {
     if (!init_1.defaults.isInitialized) {
-        throw Error('Formatter not initialized');
+        var msg = 'Formatter not initialized';
+        console.error(msg);
+        throw Error(msg);
+    }
+    if (typeof number === 'string') {
+        number = parseFloat(number);
+    }
+    if (isNaN(number)) {
+        var msg = number + " is not a number";
+        console.error(msg);
+        throw Error(msg);
     }
     return getFormattedNumber(number, opts);
 }

@@ -1,2 +1,2 @@
 import { IFormatNumberOptions } from '../IFormatNumberOptions';
-export declare function formatMileage(price: number, opts?: IFormatNumberOptions): string;
+export declare function formatMileage(mileage: number | string, opts?: IFormatNumberOptions): string;
