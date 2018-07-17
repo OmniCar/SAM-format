@@ -12,6 +12,10 @@ function formatDate(date, opts) {
     if (!init_1.defaults.isInitialized) {
         throw Error('Formatter not initialized');
     }
+    // Bail out early if input is empty string
+    if (date === '') {
+        return date;
+    }
     // attempt convert string to date
     if (typeof date === 'string') {
         try {
