@@ -16,6 +16,11 @@ export function formatDate(
     throw Error('Formatter not initialized')
   }
 
+  // Bail out early if input is empty string
+  if (date === '') {
+    return date
+  }
+
   // attempt convert string to date
   if (typeof date === 'string') {
     try {
