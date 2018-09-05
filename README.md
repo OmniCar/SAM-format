@@ -1,4 +1,7 @@
 # SAM-format
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/OmniCar/SAM-format.svg)](https://greenkeeper.io/)
+
 Library for formatting data according to locale and options given.
 
 ## Installation (for development)

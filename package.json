@@ -10,11 +10,11 @@
   "typings": "./dist/index.d.ts",
   "devDependencies": {
     "@types/date-fns": "^2.6.0",
-    "@types/jest": "^22.2.3",
+    "@types/jest": "^23.3.1",
     "@types/node": "^10.0.0",
-    "jest": "^22.4.3",
-    "ts-jest": "^22.4.4",
-    "typescript": "^2.8.3"
+    "jest": "^23.5.0",
+    "ts-jest": "^23.1.4",
+    "typescript": "^3.0.3"
   },
   "scripts": {
     "test": "jest",
@@ -44,7 +44,7 @@
   "dependencies": {
     "date-fns": "^1.29.0",
     "format-number": "^3.0.0",
-    "@omnicar/sam-types": "0.0.39",
+    "@omnicar/sam-types": "0.0.71",
     "tslib": "^1.9.0"
   }
 }
