@@ -6,5 +6,7 @@ var formatMileage_1 = require("./formatNumber/formatters/formatMileage");
 exports.formatMileage = formatMileage_1.formatMileage;
 var formatCurrency_1 = require("./formatNumber/formatters/formatCurrency");
 exports.formatCurrency = formatCurrency_1.formatCurrency;
+var formatString_1 = require("./formatString/formatString");
+exports.formatPhone = formatString_1.formatPhone;
 var init_1 = require("./init/init");
 exports.init = init_1.init;
