@@ -43,8 +43,7 @@ function getFormattedNumber(
     showDecimals = false,
     numberType = 'CURRENCY',
     symbolDisplayType = 'NONE',
-  } =
-    opts || {}
+  } = opts || {}
 
   let formatted = ''
 
@@ -68,6 +67,7 @@ function getFormattedNumber(
 
     if (showDecimals) {
       formatConf.padRight = config.numDecimals
+      formatConf.truncate = config.numDecimals
     } else {
       formatConf.truncate = 0
     }

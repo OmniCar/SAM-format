@@ -67,4 +67,24 @@ describe('formatCurrency() swedish', () => {
     // assert
     expect(result).toEqual(expected)
   })
+
+  test("should limit to 2 decimals", () => {
+    // arrange
+    const number = 12.345
+    const expected = '12,34'
+    // act
+    const result = formatCurrency(number)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test("should add trailing 0's", () => {
+    // arrange
+    const number = 12.4
+    const expected = '12,40'
+    // act
+    const result = formatCurrency(number)
+    // assert
+    expect(result).toEqual(expected)
+  })
 })
