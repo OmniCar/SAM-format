@@ -27,13 +27,13 @@ There are 3 formatters:
 
 `showDecimals` (true | **false**) show decimals in formatted number
 
-`symbolDisplayType` (**APPEND** | PREPEND | NONE) where to put symbol related to number type
+`symbolDisplayType` (APPEND | PREPEND | **NONE**) where to put symbol related to number type
 
 ### formatCurrency(value, [opts])
 
 `showDecimals` (**true** | false) show decimals in formatted number
 
-`symbolDisplayType` (**APPEND** | PREPEND | NONE) where to put symbol related to number type
+`symbolDisplayType` (APPEND | PREPEND | **NONE**) where to put symbol related to number type
 
 ### formatDate(value, [opts])
 
