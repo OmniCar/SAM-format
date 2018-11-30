@@ -32,8 +32,8 @@ describe('formatDate() default', () => {
   })
   test("should append time if 'showTime' set", () => {
     // arrange
-    const date = new Date('2018-06-12T12:00:00')
-    const expected = '12.06.2018 kl. 12.00'
+    const date = new Date('2018-06-12T14:00:00')
+    const expected = '12.06.2018 kl. 14.00'
     // act
     const result = formatDate(date, { showTime: true })
     // assert
