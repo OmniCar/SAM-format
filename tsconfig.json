@@ -36,6 +36,7 @@
     "node_modules",
     "src/**/*.test.ts",
     "test/",
-    "dist"
+    "dist",
+    "src/locales"
   ]
 }

@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": false
+  },
+  "files": ["src/locales/da-DK.ts", "src/locales/sv-SE.ts", "src/locales/en-GB.ts"]
+}
