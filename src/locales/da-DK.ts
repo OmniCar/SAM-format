@@ -1,4 +1,4 @@
-import { ILocaleConfiguration } from './ILocaleConfiguration'
+import { ILocaleConfiguration } from '../types'
 
 const locale: ILocaleConfiguration = {
   currency: {

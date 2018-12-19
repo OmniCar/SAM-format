@@ -19,8 +19,8 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watchAll --collectCoverage",
-    "tsc": "node node_modules/typescript/bin/tsc -p ./tsconfig.json -w",
-    "tsc-once": "node node_modules/typescript/bin/tsc -p ./tsconfig.json"
+    "tsc": "npx tsc -p ./tsconfig.json -w",
+    "tsc-once": "npx tsc -p tsconfig.json && npx tsc -p tsconfig.locales.json"
   },
   "jest": {
     "transform": {

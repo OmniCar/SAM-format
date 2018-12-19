@@ -1,5 +1,5 @@
-import { ILocaleConfiguration } from '../locales/ILocaleConfiguration'
 import { ISamFormatOptions } from './ISamFormatOptions'
+import { ILocaleConfiguration } from '../types'
 
 export let currentLocale: ILocaleConfiguration
 
