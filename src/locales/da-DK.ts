@@ -23,9 +23,6 @@ const locale: ILocaleConfiguration = {
     },
     numDecimals: 0,
   },
-  number: {
-    numDecimals: 2,
-  },
   separators: {
     thousand: '.',
     decimal: ',',
