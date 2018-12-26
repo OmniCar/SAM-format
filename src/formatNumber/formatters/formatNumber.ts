@@ -1,17 +1,17 @@
-import { formatNumber } from '../formatNumber'
+import { formatNumber as numberFormat} from '../formatNumber'
 import { IFormatNumberOptions } from '../IFormatNumberOptions'
 import { SymbolDisplayType } from '../NumberTypes'
 
-export function formatCurrency(
-  price: number,
+export function formatNumber(
+  value: number,
   {
-    showDecimals = true,
+    showDecimals = false,
     symbolDisplayType = 'NONE' as SymbolDisplayType,
   } = {} as IFormatNumberOptions,
 ) {
-  return formatNumber(price, {
+  return numberFormat(value, {
     showDecimals,
-    numberType: 'CURRENCY',
+    numberType: 'NUMBER',
     symbolDisplayType,
   })
 }

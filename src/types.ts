@@ -22,6 +22,9 @@ export interface ILocaleConfiguration {
     }
     numDecimals: number
   }
+  number: {
+    numDecimals: number
+  }
   separators: {
     thousand: string
     decimal: string

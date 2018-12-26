@@ -54,7 +54,7 @@ function getFormattedNumber(
     // get right section of configuration
     const type: string = (numberType as string).toLowerCase()
     const config = (currentLocale as any)[type] // cast to any because 'type' is dynamic
-    const symbol: string = config.name.short
+    const symbol: string = config.name ? config.name.short : ''
 
     switch (symbolDisplayType) {
       case 'APPEND':
