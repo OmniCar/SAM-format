@@ -1,5 +1,5 @@
-import { formatDate } from './formatDate'
 import { init } from '../init/init'
+import { formatDate } from './formatDate'
 
 describe('initialize formatter', () => {
   test('should throw error if not initialized before usage', () => {
@@ -26,7 +26,7 @@ describe('formatDate() default', () => {
     const rawFormat = 'DD MMMM YYYY'
     const expected = '12 juni 2018'
     // act
-    const result = formatDate(date, { rawFormat: 'DD MMMM YYYY' })
+    const result = formatDate(date, { rawFormat })
     // assert
     expect(result).toEqual(expected)
   })
