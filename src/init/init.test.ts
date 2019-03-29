@@ -1,5 +1,4 @@
-import { formatCurrency } from '../formatNumber/formatters/formatCurrency'
-import { init, defaults } from './init'
+import { defaults, init } from './init'
 
 describe('initFormat()', () => {
   test('should throw error if locale not found', () => {
@@ -10,7 +9,7 @@ describe('initFormat()', () => {
 
   test('should throw error if locale not found', () => {
     // assert
-    expect(() => init({ isoName: 'xx-XX' })).toThrow(
+    expect(() => init({ isoName: 'xx-XX' } as any)).toThrow(
       'Locale with iso name xx-XX was not found',
     )
   })
