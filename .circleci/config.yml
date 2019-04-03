@@ -10,15 +10,15 @@ jobs:
     steps:
       - checkout
       - run:
-          name: yarn-build-compile
+          name: npm-build-compile
           command: |
-            yarn
-            yarn tsc-once
+            npm install
+            npm run tsc-once
       - run:
           name: tests
           command: |
             echo "Running Tests"
-            yarn test
+            npm run test
       - store_artifacts:
           path: package-lock.json
       - persist_to_workspace:
