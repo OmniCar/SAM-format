@@ -276,10 +276,10 @@
     "@types/istanbul-lib-coverage" "^1.1.0"
     "@types/yargs" "^12.0.9"
 
-"@omnicar/sam-types@0.0.154":
-  version "0.0.154"
-  resolved "https://registry.yarnpkg.com/@omnicar/sam-types/-/sam-types-0.0.154.tgz#39aa7cf567a971d152f65479093d5e8d8d6ebc8a"
-  integrity sha512-d2fEaENOU+7/ayWVvNSIJIlm4hz+7ysuJYE6KRABQvLnu4TVhS03nkqA1ELoFnn9LyJiuQJmOCvRvlH9TjGq9A==
+"@omnicar/sam-types@0.0.156":
+  version "0.0.156"
+  resolved "https://registry.yarnpkg.com/@omnicar/sam-types/-/sam-types-0.0.156.tgz#c35b01935e2f85a0e0557d76e8d1348b1ba1aab6"
+  integrity sha512-RLmUM2/qsrjfc31tyBQJM5aqIxfbjqURmg6Mr4utXIx9c9N0Zz9OlejEABP0R1EIVuvDSd4rLTYav88TlQ4+gA==
 
 "@types/babel__core@^7.1.0":
   version "7.1.0"
