@@ -6,7 +6,7 @@ export function formatCurrency(
   {
     showDecimals = true,
     symbolDisplayType = 'NONE',
-  } = {} as IFormatNumberOptions,
+  }: IFormatNumberOptions = {},
 ) {
   return formatNumber(price, {
     showDecimals,
