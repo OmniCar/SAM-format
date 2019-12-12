@@ -32,12 +32,13 @@ export function formatPhone(
   if (!phone) {
     return phone
   }
-  const formats = phoneMap.get(defaults.isoName)
+  let formats = phoneMap.get(defaults.isoName)
+  if (!formats) {
+    formats = phoneMap.get('da-DK')
+  }
   if (!formats) {
     throw Error(
-      `You requested locale "${
-        defaults.isoName
-      }", but there are no phone formats for that locale`,
+      `You requested locale "${defaults.isoName}", but there are no phone formats for that locale`,
     )
   }
   // Add space between area code and main number for spaced numbers.
