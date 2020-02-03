@@ -61,7 +61,7 @@ function getFormattedNumber(
         formatConf.suffix = ` ${symbol}`
         break
       case 'PREPEND':
-        formatConf.prefix = `${symbol} `
+        formatConf.prefix = `${symbol}`
         break
     }
 

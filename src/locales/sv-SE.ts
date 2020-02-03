@@ -4,22 +4,22 @@ const locale: ILocaleConfiguration = {
   currency: {
     symbol: 'SEK',
     name: {
-      long: 'kroner',
-      short: 'kr.',
+      long: 'kronor',
+      short: 'kr',
     },
     numDecimals: 2,
   },
   date: {
-    format: 'YYYY/MM/DD',
+    format: 'YYYY-MM-DD',
     name: {
-      long: 'klocka',
+      long: 'klockan',
       short: 'kl.',
     },
   },
   mileage: {
     name: {
-      long: 'mil',
-      short: 'm.',
+      long: 'kilometer',
+      short: 'km',
     },
     numDecimals: 0,
   },

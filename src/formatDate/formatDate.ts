@@ -61,7 +61,9 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
 
     // format time
     const minuteSep = separators.minute
-    const timeFormat = `${dateConfig.name.short} HH${minuteSep}mm`
+    const timeFormat = !dateConfig.name.short
+      ? `HH${minuteSep}mm`
+      : `${dateConfig.name.short} HH${minuteSep}mm`
 
     formatted = format(
       date,

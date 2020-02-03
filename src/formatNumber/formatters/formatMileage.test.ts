@@ -25,15 +25,34 @@ describe('formatMileage() default', () => {
     expect(result).toEqual(expected)
   })
 })
+
 describe('formatMileage() danish', () => {
   beforeAll(() => {
     init({ isoName: 'da-DK' })
   })
 
-  test("should format 10 to '10 km.' when 'symbolDisplayType = APPEND'", () => {
+  test("should format 10 to '10 km' when 'symbolDisplayType = APPEND'", () => {
     // arrange
     const number = 10
-    const expected = '10 km.'
+    const expected = '10 km'
+    // act
+    const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test("should format 2500 to '2.500 km' when 'symbolDisplayType = APPEND'", () => {
+    // arrange
+    const number = 2500
+    const expected = '2.500 km'
+    // act
+    const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test("should format 1.5 to '1 km' when 'symbolDisplayType = APPEND'", () => {
+    // arrange
+    const number = 1.5
+    const expected = '1 km'
     // act
     const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
     // assert
@@ -46,10 +65,96 @@ describe('formatMileage() swedish', () => {
     init({ isoName: 'sv-SE' })
   })
 
-  test("should format 10 to '10 m.' when 'symbolDisplayType = APPEND'", () => {
+  test("should format 10 to '10 km' when 'symbolDisplayType = APPEND'", () => {
     // arrange
     const number = 10
-    const expected = '10 m.'
+    const expected = '10 km'
+    // act
+    const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test("should format 2500 to '2.500 km' when 'symbolDisplayType = APPEND'", () => {
+    // arrange
+    const number = 2500
+    const expected = '2.500 km'
+    // act
+    const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test("should format 1.5 to '1 km' when 'symbolDisplayType = APPEND'", () => {
+    // arrange
+    const number = 1.5
+    const expected = '1 km'
+    // act
+    const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+})
+
+describe('formatMileage() finnish', () => {
+  beforeAll(() => {
+    init({ isoName: 'fi-FI' })
+  })
+
+  test("should format 10 to '10 km' when 'symbolDisplayType = APPEND'", () => {
+    // arrange
+    const number = 10
+    const expected = '10 km'
+    // act
+    const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test("should format 2500 to '2.500 km' when 'symbolDisplayType = APPEND'", () => {
+    // arrange
+    const number = 2500
+    const expected = '2.500 km'
+    // act
+    const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test("should format 1.5 to '1 km' when 'symbolDisplayType = APPEND'", () => {
+    // arrange
+    const number = 1.5
+    const expected = '1 km'
+    // act
+    const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+})
+
+describe('formatMileage() brittish', () => {
+  beforeAll(() => {
+    init({ isoName: 'en-GB' })
+  })
+
+  test("should format 10 to '10 km' when 'symbolDisplayType = APPEND'", () => {
+    // arrange
+    const number = 10
+    const expected = '10 km'
+    // act
+    const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test("should format 2500 to '2,500 km' when 'symbolDisplayType = APPEND'", () => {
+    // arrange
+    const number = 2500
+    const expected = '2,500 km'
+    // act
+    const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test("should format 1.5 to '1 km' when 'symbolDisplayType = APPEND'", () => {
+    // arrange
+    const number = 1.5
+    const expected = '1 km'
     // act
     const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
     // assert
