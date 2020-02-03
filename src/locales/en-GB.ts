@@ -10,7 +10,7 @@ const locale: ILocaleConfiguration = {
     numDecimals: 2,
   },
   date: {
-    format: 'YYYY/MM/DD',
+    format: 'DD/MM/YYYY',
     name: {
       long: '',
       short: '',
@@ -18,8 +18,8 @@ const locale: ILocaleConfiguration = {
   },
   mileage: {
     name: {
-      long: '',
-      short: '',
+      long: 'kilometers',
+      short: 'km',
     },
     numDecimals: 0,
   },

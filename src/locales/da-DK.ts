@@ -19,14 +19,14 @@ const locale: ILocaleConfiguration = {
   mileage: {
     name: {
       long: 'kilometer',
-      short: 'km.',
+      short: 'km',
     },
     numDecimals: 0,
   },
   separators: {
     thousand: '.',
     decimal: ',',
-    minute: '.',
+    minute: ':',
   },
 }
 
