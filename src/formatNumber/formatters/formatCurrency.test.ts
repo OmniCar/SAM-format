@@ -52,7 +52,7 @@ describe('formatCurrency() swedish', () => {
   test("should append currency kr. if 'symbolDisplayType = APPEND'", () => {
     // arrange
     const number = 0
-    const expected = '0,00 kr.'
+    const expected = '0,00 kr'
     // act
     const result = formatCurrency(number, { symbolDisplayType: 'APPEND' })
     // assert
@@ -61,14 +61,14 @@ describe('formatCurrency() swedish', () => {
   test("should prepend currency kr. if 'symbolDisplayType = PREPEND'", () => {
     // arrange
     const number = 0
-    const expected = 'kr. 0,00'
+    const expected = 'kr 0,00'
     // act
     const result = formatCurrency(number, { symbolDisplayType: 'PREPEND' })
     // assert
     expect(result).toEqual(expected)
   })
 
-  test("should limit to 2 decimals", () => {
+  test('should limit to 2 decimals', () => {
     // arrange
     const number = 12.345
     const expected = '12,34'

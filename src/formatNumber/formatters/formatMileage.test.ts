@@ -25,15 +25,16 @@ describe('formatMileage() default', () => {
     expect(result).toEqual(expected)
   })
 })
+
 describe('formatMileage() danish', () => {
   beforeAll(() => {
     init({ isoName: 'da-DK' })
   })
 
-  test("should format 10 to '10 km.' when 'symbolDisplayType = APPEND'", () => {
+  test("should format 10 to '10 km' when 'symbolDisplayType = APPEND'", () => {
     // arrange
     const number = 10
-    const expected = '10 km.'
+    const expected = '10 km'
     // act
     const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
     // assert
@@ -46,10 +47,10 @@ describe('formatMileage() swedish', () => {
     init({ isoName: 'sv-SE' })
   })
 
-  test("should format 10 to '10 m.' when 'symbolDisplayType = APPEND'", () => {
+  test("should format 10 to '10 km' when 'symbolDisplayType = APPEND'", () => {
     // arrange
     const number = 10
-    const expected = '10 m.'
+    const expected = '10 km'
     // act
     const result = formatMileage(number, { symbolDisplayType: 'APPEND' })
     // assert

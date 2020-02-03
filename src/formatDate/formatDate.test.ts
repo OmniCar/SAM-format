@@ -33,7 +33,7 @@ describe('formatDate() default', () => {
   test("should append time if 'showTime' set", () => {
     // arrange
     const date = new Date('2018-06-12T14:00:00')
-    const expected = '12.06.2018 kl. 14.00'
+    const expected = '12.06.2018 kl. 14:00'
     // act
     const result = formatDate(date, { showTime: true })
     // assert
@@ -42,7 +42,7 @@ describe('formatDate() default', () => {
   test('should accept string input', () => {
     // arrange
     const date = '2018-06-12T12:00:00'
-    const expected = '12.06.2018 kl. 12.00'
+    const expected = '12.06.2018 kl. 12:00'
     // act
     const result = formatDate(date, { showTime: true })
     // assert
@@ -76,7 +76,7 @@ describe('formatDate() danish', () => {
   test("formatDate() should format time with '.' as minute separator", () => {
     // arrange
     const date = new Date('2018-06-12T12:34:00')
-    const expected = '12.06.2018 kl. 12.34'
+    const expected = '12.06.2018 kl. 12:34'
     // act
     const result = formatDate(date, { showTime: true })
     // assert
@@ -91,7 +91,7 @@ describe('formatDate() swedish', () => {
   test("formatDate() should format new Date('2018-06-12') to '2018/06/12", () => {
     // arrange
     const date = new Date('2018-06-12')
-    const expected = '2018/06/12'
+    const expected = '2018-06-12'
     // act
     const result = formatDate(date)
     // assert
@@ -110,7 +110,7 @@ describe('formatDate() swedish', () => {
   test("formatDate() should format time with ':' as minute separator", () => {
     // arrange
     const date = new Date('2018-06-12T12:34:00')
-    const expected = '2018/06/12 kl. 12:34'
+    const expected = '2018-06-12 kl. 12:34'
     // act
     const result = formatDate(date, { showTime: true })
     // assert
