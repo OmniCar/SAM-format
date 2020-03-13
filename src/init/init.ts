@@ -20,6 +20,7 @@ export function init(options?: ISamFormatOptions) {
   // get locale formatting from iso name
   try {
     const locale = require(`../locales/${isoName}`).default
+    console.log("locale>>>>", isoName)
     currentLocale = locale
     defaults = {
       ...defaults,
@@ -27,6 +28,7 @@ export function init(options?: ISamFormatOptions) {
       isInitialized: true,
     }
   } catch (error) {
+    console.log('error', error)
     console.error(error)
     throw Error(`Locale with iso name ${isoName} was not found`)
   }

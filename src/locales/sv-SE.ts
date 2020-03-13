@@ -10,7 +10,7 @@ const locale: ILocaleConfiguration = {
     numDecimals: 2,
   },
   date: {
-    format: 'YYYY-MM-DD',
+    format: 'yyyy-MM-dd',
     name: {
       long: 'klockan',
       short: 'kl.',
