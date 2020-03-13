@@ -58,6 +58,7 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
     let locale
     try {
       locale = require('date-fns/locale/' + localeShort)
+      console.log('locale', locale)
     } catch (error) {
       console.error(error)
       throw Error(error)
@@ -79,7 +80,7 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
       date,
       rawFormat || createdFormat,
       {
-        locale,
+        locale: locale.default ? locale.default : locale,
       },
     )
 
