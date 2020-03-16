@@ -23,7 +23,7 @@ describe('formatDate() default', () => {
   test("should prioritize 'rawFormat' if set", () => {
     // arrange
     const date = new Date('2018-06-12')
-    const rawFormat = 'DD MMMM YYYY'
+    const rawFormat = 'dd MMMM yyyy'
     const expected = '12 juni 2018'
     // act
     const result = formatDate(date, { rawFormat })
@@ -66,7 +66,7 @@ describe('formatDate() danish', () => {
   test("formatDate() should prioritize 'rawFormat' if set", () => {
     // arrange
     const date = new Date('2018-06-12')
-    const rawFormat = 'DD MMMM'
+    const rawFormat = 'dd MMMM'
     const expected = '12 juni'
     // act
     const result = formatDate(date, { rawFormat })
@@ -100,7 +100,7 @@ describe('formatDate() swedish', () => {
   test("formatDate() should prioritize 'rawFormat' if set", () => {
     // arrange
     const date = new Date('2018-06-12')
-    const rawFormat = 'DD MMMM'
+    const rawFormat = 'dd MMMM'
     const expected = '12 juni'
     // act
     const result = formatDate(date, { rawFormat })
@@ -134,8 +134,8 @@ describe('formatDate() finnsih', () => {
   test("formatDate() should prioritize 'rawFormat' if set", () => {
     // arrange
     const date = new Date('2018-12-12')
-    const rawFormat = 'DD MMMM'
-    const expected = '12 joulukuu'
+    const rawFormat = 'dd MMMM'
+    const expected = '12 joulukuuta'
     // act
     const result = formatDate(date, { rawFormat })
     // assert
@@ -168,7 +168,7 @@ describe('formatDate()', () => {
   test("formatDate() should prioritize 'rawFormat' if set", () => {
     // arrange
     const date = new Date('2018-03-12')
-    const rawFormat = 'DD MMMM'
+    const rawFormat = 'dd MMMM'
     const expected = '12 March'
     // act
     const result = formatDate(date, { rawFormat })

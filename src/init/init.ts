@@ -27,6 +27,7 @@ export function init(options?: ISamFormatOptions) {
       isInitialized: true,
     }
   } catch (error) {
+    console.log('error', error)
     console.error(error)
     throw Error(`Locale with iso name ${isoName} was not found`)
   }
