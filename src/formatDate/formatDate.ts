@@ -50,15 +50,12 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
   if (dateConfig && separators) {
     let localeShort: string = defaults.isoName
     if (localeShort !== 'en-GB')
-      localeShort = defaults.isoName.substring(
-        0,
-        defaults.isoName.indexOf('-'),
-      )
+      localeShort = defaults.isoName.substring(0, defaults.isoName.indexOf('-'))
 
     let locale
     try {
       locale = require('date-fns/locale/' + localeShort)
-      console.log('locale', locale)
+      // console.log('locale', locale)
     } catch (error) {
       console.error(error)
       throw Error(error)
@@ -70,20 +67,17 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
       ? `HH${minuteSep}mm`
       : `'${dateConfig.name.short}' HH${minuteSep}mm`
 
-    const createdFormat = `${dateConfig.format}${showTime ? ' ' + timeFormat : ''}`
+    const createdFormat = `${dateConfig.format}${
+      showTime ? ' ' + timeFormat : ''
+    }`
 
     if (!rawFormat && !isValid(date)) {
       throw Error('Invalid Date')
     }
 
-    formatted = format(
-      date,
-      rawFormat || createdFormat,
-      {
-        locale: locale.default ? locale.default : locale,
-      },
-    )
-
+    formatted = format(date, rawFormat || createdFormat, {
+      locale: locale.default ? locale.default : locale,
+    })
   }
 
   // if invalid date
