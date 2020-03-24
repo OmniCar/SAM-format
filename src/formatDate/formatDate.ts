@@ -37,8 +37,9 @@ export function formatDate(
 
 /**
  * Note:
- * Formats the date (months names, etc) based on the provided locale, WITHOUT
- * effecting the CURRENT locale.
+ * Formats the date (months names, etc) based on the provided locale
+ * independent of current set locale (independet of the init
+ * function of sam-format).
  *
  * @param date: The date object to format.
  * @param rawFormat: The format to display this date.
