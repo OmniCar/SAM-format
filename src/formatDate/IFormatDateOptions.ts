@@ -1,7 +1,7 @@
 /**
- * Options for formatting date
- * @showTime: append the time (hh:mm) after the date
- * @rawFormat: display date in a custom format
+ * Options for formatting date.
+ * @param showTime: If true then appends time (hh:mm) after the date.
+ * @param rawFormat: The format to display the date.
  */
 export interface IFormatDateOptions {
   showTime?: boolean
