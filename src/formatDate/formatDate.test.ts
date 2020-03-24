@@ -190,7 +190,7 @@ describe('formatDate()', () => {
 
 describe('formatLocalizedDate(..) 1/2', () => {
   const date1 = new Date('2020-08-24')
-  const rawFormat1 = 'yyyy MMMM'
+  const rawFormat1 = 'yyyy MMMM EEE'
 
   beforeAll(() => {
     init({ isoName: 'sv-SE' })
@@ -199,7 +199,7 @@ describe('formatLocalizedDate(..) 1/2', () => {
   test('month should be in Danish', () => {
     // arrange
     const isoLocale = 'da-DK'
-    const expected = '2020 august'
+    const expected = '2020 august man.'
     // act
     const result = formatLocalizedDate(date1, rawFormat1, isoLocale)
     // assert
@@ -209,7 +209,7 @@ describe('formatLocalizedDate(..) 1/2', () => {
   test('Month should be in Swedish', () => {
     // arrange
     const isoLocale = 'sv-SE'
-    const expected = '2020 augusti'
+    const expected = '2020 augusti mån'
     // act
     const result = formatLocalizedDate(date1, rawFormat1, isoLocale)
     // assert
@@ -219,7 +219,7 @@ describe('formatLocalizedDate(..) 1/2', () => {
   test('Month should be in Finnish', () => {
     // arrange
     const isoLocale = 'fi-FI'
-    const expected = '2020 elokuuta'
+    const expected = '2020 elokuuta maan.'
     // act
     const result = formatLocalizedDate(date1, rawFormat1, isoLocale)
     // assert
@@ -229,7 +229,7 @@ describe('formatLocalizedDate(..) 1/2', () => {
   test('Month should be in English', () => {
     // arrange
     const isoLocale = 'en-GB'
-    const expected = '2020 August'
+    const expected = '2020 August Mon'
     // act
     const result = formatLocalizedDate(date1, rawFormat1, isoLocale)
     // assert
@@ -240,8 +240,8 @@ describe('formatLocalizedDate(..) 1/2', () => {
   test("formatDate() should still be in Swedish as 'sv-SE' locale was used in init", () => {
     // arrange
     const date = new Date('1975-03-17')
-    const rawFormat = 'do MMMM yyyy'
-    const expected = '17:e mars 1975'
+    const rawFormat = 'EEEE do MMMM yyyy'
+    const expected = 'måndag 17:e mars 1975'
     // act
     const result = formatDate(date, { rawFormat })
     // assert
@@ -301,8 +301,8 @@ describe('formatLocalizedDate(..) 2/2', () => {
   test("formatDate() should still be in English as 'en-GB' locale was used in init", () => {
     // arrange
     const date = new Date('2020-02-20 22:00')
-    const rawFormat = 'h.mm a'
-    const expected = '10.00 PM'
+    const rawFormat = 'EEEE h.mm a'
+    const expected = 'Thursday 10.00 PM'
     // act
     const result = formatDate(date, { rawFormat })
     // assert
