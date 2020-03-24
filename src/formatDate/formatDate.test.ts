@@ -1,5 +1,5 @@
 import { init } from '../init/init'
-import { formatDate } from './formatDate'
+import { formatDate, formatLocalizedDate } from './formatDate'
 
 describe('initialize formatter', () => {
   test('should throw error if not initialized before usage', () => {
@@ -181,6 +181,130 @@ describe('formatDate()', () => {
     const expected = '03/02/2020 10:36'
     // act
     const result = formatDate(date, { showTime: true })
+    // assert
+    expect(result).toEqual(expected)
+  })
+})
+
+// -- formatLocalizedDate -------------------------------------------
+
+describe('formatLocalizedDate(..) 1/2', () => {
+  const date1 = new Date('2020-08-24')
+  const rawFormat1 = 'yyyy MMMM EEE'
+
+  beforeAll(() => {
+    init({ isoName: 'sv-SE' })
+  })
+
+  test('month should be in Danish', () => {
+    // arrange
+    const isoLocale = 'da-DK'
+    const expected = '2020 august man.'
+    // act
+    const result = formatLocalizedDate(date1, rawFormat1, isoLocale)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('Month should be in Swedish', () => {
+    // arrange
+    const isoLocale = 'sv-SE'
+    const expected = '2020 augusti mån'
+    // act
+    const result = formatLocalizedDate(date1, rawFormat1, isoLocale)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('Month should be in Finnish', () => {
+    // arrange
+    const isoLocale = 'fi-FI'
+    const expected = '2020 elokuuta maan.'
+    // act
+    const result = formatLocalizedDate(date1, rawFormat1, isoLocale)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('Month should be in English', () => {
+    // arrange
+    const isoLocale = 'en-GB'
+    const expected = '2020 August Mon'
+    // act
+    const result = formatLocalizedDate(date1, rawFormat1, isoLocale)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  // This clause must come last.
+  test("formatDate() should still be in Swedish as 'sv-SE' locale was used in init", () => {
+    // arrange
+    const date = new Date('1975-03-17')
+    const rawFormat = 'EEEE do MMMM yyyy'
+    const expected = 'måndag 17:e mars 1975'
+    // act
+    const result = formatDate(date, { rawFormat })
+    // assert
+    expect(result).toEqual(expected)
+  })
+})
+
+describe('formatLocalizedDate(..) 2/2', () => {
+  const date2 = new Date('1999-08-09')
+  const rawFormat2 = 'yyyy MMM'
+
+  beforeAll(() => {
+    init({ isoName: 'en-GB' })
+  })
+
+  test('month should be in Danish', () => {
+    // arrange
+    const isoLocale = 'da-DK'
+    const expected = '1999 aug'
+    // act
+    const result = formatLocalizedDate(date2, rawFormat2, isoLocale)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('Month should be in Swedish', () => {
+    // arrange
+    const isoLocale = 'sv-SE'
+    const expected = '1999 aug.'
+    // act
+    const result = formatLocalizedDate(date2, rawFormat2, isoLocale)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('Month should be in Finnish', () => {
+    // arrange
+    const isoLocale = 'fi-FI'
+    const expected = '1999 elo'
+    // act
+    const result = formatLocalizedDate(date2, rawFormat2, isoLocale)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('Month should be in English', () => {
+    // arrange
+    const isoLocale = 'en-GB'
+    const expected = '1999 Aug'
+    // act
+    const result = formatLocalizedDate(date2, rawFormat2, isoLocale)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  // This clause must come last.
+  test("formatDate() should still be in English as 'en-GB' locale was used in init", () => {
+    // arrange
+    const date = new Date('2020-02-20 22:00')
+    const rawFormat = 'EEEE h.mm a'
+    const expected = 'Thursday 10.00 PM'
+    // act
+    const result = formatDate(date, { rawFormat })
     // assert
     expect(result).toEqual(expected)
   })
