@@ -4,16 +4,16 @@ import { currentLocale } from '../init/init'
 import { format, isValid } from 'date-fns'
 import { IFormatDateOptions } from './IFormatDateOptions'
 
-import { da, sv, fi, enGB } from 'date-fns/locale'
-
 /*
-const LOCALES = {
-  'da-DK': require('date-fns/locale/da'),
-  'sv-SE': require('date-fns/locale/sv'),
-  'fi-FI': require('date-fns/locale/fi'),
-  'en-GB': require('date-fns/locale/en-GB'),
-}
+  Ref: https://date-fns.org/v2.10.0/docs/I18n
+  "
+    It might seem complicated to require and pass locales as options,
+    but unlike Moment.js which bloats your build with all the locales
+    by default date-fns forces developer to manually require
+    locales when needed.
+  "
 */
+import { da, sv, fi, enGB } from 'date-fns/locale'
 
 /**
  * Get formatted date in current locale.
@@ -80,28 +80,6 @@ export function formatLocalizedDate(
  * Language/short-locale is only the two letter language code.
  *
  * @param isoLocale A locale code in the form 'xx-yy'.
- * @returns A two letter language code (short locale) from the provided locale.
- */
-/*
-// Delete this function if it's not needed anymore!
-
-function localeToLanguage(isoLocale: IsoLocale): string {
-  if (!isoLocale) {
-    return ''
-  } else {
-    return isoLocale.substr(0, 2)
-  }
-}
-*/
-
-/**
- * Note:
- * Locale is a string in the form 'xx-yy', where:
- *   xx = two letter language code
- *   yy = two letter country/region code
- * Language/short-locale is only the two letter language code.
- *
- * @param isoLocale A locale code in the form 'xx-yy'.
  * @returns A locale structure with functions from the provided iso-locale.
  */
 function getLocaleFns(isoLocale: IsoLocale): Locale {
@@ -115,7 +93,7 @@ function getLocaleFns(isoLocale: IsoLocale): Locale {
     case 'en-GB':
       return enGB
     default:
-      throw Error('Locale not found for that IsoLocale: ' + isoLocale)
+      throw Error('Locale not found for this IsoLocale: ' + isoLocale)
   }
 }
 
