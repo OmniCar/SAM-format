@@ -4,6 +4,13 @@ import { currentLocale } from '../init/init'
 import { format, isValid } from 'date-fns'
 import { IFormatDateOptions } from './IFormatDateOptions'
 
+const LOCALES = {
+  'da-DK': require('date-fns/locale/da'),
+  'sv-SE': require('date-fns/locale/sv'),
+  'fi-FI': require('date-fns/locale/fi'),
+  'en-GB': require('date-fns/locale/en-GB'),
+}
+
 /**
  * Get formatted date in current locale.
  * @param date
@@ -71,6 +78,9 @@ export function formatLocalizedDate(
  * @param isoLocale A locale code in the form 'xx-yy'.
  * @returns A two letter language code (short locale) from the provided locale.
  */
+/*
+// Delete this function if it's not needed anymore!
+
 function localeToLanguage(isoLocale: IsoLocale): string {
   if (!isoLocale) {
     return ''
@@ -78,6 +88,7 @@ function localeToLanguage(isoLocale: IsoLocale): string {
     return isoLocale.substr(0, 2)
   }
 }
+*/
 
 /**
  * Note:
@@ -90,6 +101,7 @@ function localeToLanguage(isoLocale: IsoLocale): string {
  * @returns A locale structure with functions from the provided iso-locale.
  */
 function getLocaleFns(isoLocale: IsoLocale): Locale {
+  /*
   let locale: Locale
   let strFileName: string
 
@@ -107,8 +119,9 @@ function getLocaleFns(isoLocale: IsoLocale): Locale {
   }
 
   locale = require('date-fns/locale/' + strFileName)
+  */
 
-  return locale
+  return LOCALES[isoLocale]
 }
 
 /**
