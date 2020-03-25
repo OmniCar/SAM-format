@@ -4,12 +4,16 @@ import { currentLocale } from '../init/init'
 import { format, isValid } from 'date-fns'
 import { IFormatDateOptions } from './IFormatDateOptions'
 
+import { da, sv, fi, enGB } from 'date-fns/locale'
+
+/*
 const LOCALES = {
   'da-DK': require('date-fns/locale/da'),
   'sv-SE': require('date-fns/locale/sv'),
   'fi-FI': require('date-fns/locale/fi'),
   'en-GB': require('date-fns/locale/en-GB'),
 }
+*/
 
 /**
  * Get formatted date in current locale.
@@ -101,27 +105,18 @@ function localeToLanguage(isoLocale: IsoLocale): string {
  * @returns A locale structure with functions from the provided iso-locale.
  */
 function getLocaleFns(isoLocale: IsoLocale): Locale {
-  /*
-  let locale: Locale
-  let strFileName: string
-
   switch (isoLocale.toString()) {
-    // These following have support of full locale ('xx-yy').
-    case 'en-AU':
-    case 'en-CA':
+    case 'da-DK':
+      return da
+    case 'sv-SE':
+      return sv
+    case 'fi-FI':
+      return fi
     case 'en-GB':
-    case 'en-US':
-      strFileName = isoLocale.toString()
-      break
-    // While these, the rest, have support for only language/short-locale ('xx').
+      return enGB
     default:
-      strFileName = localeToLanguage(isoLocale)
+      throw Error('Locale not found for that IsoLocale: ' + isoLocale)
   }
-
-  locale = require('date-fns/locale/' + strFileName)
-  */
-
-  return LOCALES[isoLocale]
 }
 
 /**
