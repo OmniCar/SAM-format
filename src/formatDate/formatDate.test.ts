@@ -14,6 +14,24 @@ describe('formatDate() default', () => {
   beforeAll(() => {
     init({ isoName: 'da-DK' })
   })
+
+  test('should return empty string "" (not crash) when date is null', () => {
+    // arrange
+    const date = null
+    // act
+    const result = formatDate(date)
+    // assert
+    expect(result).toEqual('')
+  })
+  test('should return empty string "" (not crash) when date is empty string "" ', () => {
+    // arrange
+    const date = ''
+    // act
+    const result = formatDate(date)
+    // assert
+    expect(result).toEqual('')
+  })
+
   test('should throw error if invalid date format', () => {
     // arrange
     const date = new Date('aaa-aaa-aaa')

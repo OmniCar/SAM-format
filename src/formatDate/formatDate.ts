@@ -21,19 +21,19 @@ import { da, sv, fi, enGB } from 'date-fns/locale'
  * @param opts
  */
 export function formatDate(
-  date: Date | string,
+  date: Date | string | null,
   opts?: IFormatDateOptions,
 ): string {
   if (!defaults.isInitialized) {
     throw Error('Formatter not initialized')
   }
 
-  // Bail out early if input is empty string
-  if (date === '') {
-    return date
+  // Bail out early if input is null or empty string.
+  if (!date) {
+    return ''
   }
 
-  // attempt convert string to date
+  // Attempt convert string to date.
   if (typeof date === 'string') {
     try {
       date = new Date(date)
@@ -130,7 +130,7 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
 
     const createdFormat = `${dateConfig.format}${
       showTime ? ' ' + timeFormat : ''
-    }`
+      }`
 
     if (!rawFormat && !isValid(date)) {
       throw Error('Invalid Date')
