@@ -21,21 +21,40 @@ phoneMap.set('sv-SE', {
   givenFormat: /(\+\d{2})?(\d{2})(\d{3})(\d{2})(\d{2})/g,
   newFormat: '$2-$3 $4 $5',
 })
+phoneMap.set('fi-FI', {
+  givenFormat: /(\+\d{3})?(\d{2})(\d{3})(\d{2})(\d{2})/g,
+  newFormat: '$2-$3 $4 $5',
+})
 
-// formatPhone formats the given phone number according to locale. Supports spacing between number groups
-// and an option for whether area code should be displayed or not. The pattern '00<area-code>' will be changed
-// into '+<area-code>' as part of the normalization.
+/**
+ * formatPhone formats the given phone number according to locale. Supports spacing between number
+ * groups and an option for whether area code should be displayed or not. The pattern '00<area-code>'
+ * will be changed into '+<area-code>' as part of the normalization.
+ *
+ * @param phone
+ * @param options as IFormatStringOptions, default is { showAreaCode = true, addSpaces = true }
+ * @param isoLocale Format this phone-number following the rules of isoLocale given here, independently
+ * of what the global locale is set to use.
+ */
 export function formatPhone(
   phone: string,
   { showAreaCode = true, addSpaces = true } = {} as IFormatStringOptions,
+  // { showAreaCode = true, addSpaces = true } = {} as IFormatStringOptions,
+  isoLocale?: IsoLocale,
 ) {
   if (!phone) {
     return phone
   }
-  let formats = phoneMap.get(defaults.isoName)
-  if (!formats) {
-    formats = phoneMap.get('da-DK')
+
+  let formats = phoneMap.get('da-DK')
+  if (!isoLocale) {
+    formats = phoneMap.get(defaults.isoName) // Use the "global" locale that is set.
+  } else {
+    formats = phoneMap.get(isoLocale)
   }
+  // if (!formats) {
+  //   formats = phoneMap.get('da-DK')
+  // }
   if (!formats) {
     throw Error(
       `You requested locale "${defaults.isoName}", but there are no phone formats for that locale`,

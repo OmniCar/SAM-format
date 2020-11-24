@@ -13,7 +13,7 @@ import { IFormatDateOptions } from './IFormatDateOptions'
     locales when needed.
   "
 */
-import { da, sv, fi, enGB } from 'date-fns/locale'
+import { da, sv, fi, nb, enGB } from 'date-fns/locale' // NOTE: Add new locale here, and here in getLocaleFns(..)
 
 /**
  * Get formatted date in current locale.
@@ -90,6 +90,8 @@ function getLocaleFns(isoLocale: IsoLocale): Locale {
       return sv
     case 'fi-FI':
       return fi
+    case 'nb-NO':
+      return nb
     case 'en-GB':
       return enGB
     default:
@@ -130,7 +132,7 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
 
     const createdFormat = `${dateConfig.format}${
       showTime ? ' ' + timeFormat : ''
-      }`
+    }`
 
     if (!rawFormat && !isValid(date)) {
       throw Error('Invalid Date')
