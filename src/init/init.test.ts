@@ -19,12 +19,41 @@ describe('initFormat()', () => {
     // assert
     expect(defaults.isoName).toEqual('da-DK')
   })
-  test('should set locale on initialization if found', () => {
+
+  test('should set locale on initialization if found: Danish - Denmark', () => {
     // arrange
-    const isoName = 'sv-SE'
+    const isoName = 'da-DK'
+    const expected = 'da-DK'
     // act
     init({ isoName })
     // assert
-    expect(defaults.isoName).toEqual(isoName)
+    expect(defaults.isoName).toEqual(expected)
+  })
+  test('should set locale on initialization if found: Swedish - Sweden', () => {
+    // arrange
+    const isoName = 'sv-SE'
+    const expected = 'sv-SE'
+    // act
+    init({ isoName })
+    // assert
+    expect(defaults.isoName).toEqual(expected)
+  })
+  test('should set locale on initialization if found: Finnish - Finland', () => {
+    // arrange
+    const isoName = 'fi-FI'
+    const expected = 'fi-FI'
+    // act
+    init({ isoName })
+    // assert
+    expect(defaults.isoName).toEqual(expected)
+  })
+  test('should set locale on initialization if found: Norsk Bokmål - Norway', () => {
+    // arrange
+    const isoName = 'nb-NO'
+    const expected = 'nb-NO'
+    // act
+    init({ isoName })
+    // assert
+    expect(defaults.isoName).toEqual(expected)
   })
 })
