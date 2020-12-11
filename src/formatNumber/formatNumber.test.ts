@@ -84,7 +84,7 @@ describe('formatNumber()', () => {
     // assert
     expect(result).toEqual(expected)
   })
-  test('should format string "10.5" as "10.5"', () => {
+  test('should format string "10.5" as "10"', () => {
     // arrange
     const number = '10.5'
     const expected = '10'
@@ -116,20 +116,20 @@ describe('formatNumber()', () => {
     expect(result).toEqual(expected)
   })
 
-  test('should format 1000 as "1.000" as default', () => {
+  test('should format 1000 as "1 000" as default', () => {
     // arrange
     const number = 1000
-    const expected = '1.000'
+    const expected = '1 000'
     // act
     const result = formatNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
 
-  test('should format 1000 as "1.000,00" as default if \'showDecimals\'', () => {
+  test('should format 1000 as "1 000,00" as default if \'showDecimals\'', () => {
     // arrange
     const number = 1000
-    const expected = '1.000,00'
+    const expected = '1 000,00'
     // act
     const result = formatNumber(number, { showDecimals: true })
     // assert
@@ -182,20 +182,20 @@ describe('formatNumber()', () => {
     expect(result).toEqual(expected)
   })
 
-  test('should format 1000 as "1.000" as default', () => {
+  test('should format 1000 as "1 000" as default', () => {
     // arrange
     const number = 1000
-    const expected = '1.000'
+    const expected = '1 000'
     // act
     const result = formatNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
 
-  test('should format 1000 as "1.000,00" as default if \'showDecimals\'', () => {
+  test('should format 1000 as "1 000,00" as default if \'showDecimals\'', () => {
     // arrange
     const number = 1000
-    const expected = '1.000,00'
+    const expected = '1 000,00'
     // act
     const result = formatNumber(number, { showDecimals: true })
     // assert
@@ -222,7 +222,73 @@ describe('formatNumber()', () => {
     expect(result).toEqual(expected)
   })
 
-  test('should format 0.5 as "0,50" as default', () => {
+  test('should format 0.5 as "0,50" as with decimals', () => {
+    // arrange
+    const number = '0.5'
+    const expected = '0,50'
+    // act
+    const result = formatNumber(number, { showDecimals: true })
+    // assert
+    expect(result).toEqual(expected)
+  })
+})
+
+describe('formatNumber()', () => {
+  beforeAll(() => {
+    init({ isoName: 'nb-NO' })
+  })
+
+  test('should format 0 as "0" as default', () => {
+    // arrange
+    const number = 0
+    const expected = '0'
+    // act
+    const result = formatNumber(number)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should format 1000 as "1 000" as default', () => {
+    // arrange
+    const number = 1000
+    const expected = '1 000'
+    // act
+    const result = formatNumber(number)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should format 1000 as "1 000,00" as default if \'showDecimals\'', () => {
+    // arrange
+    const number = 1000
+    const expected = '1 000,00'
+    // act
+    const result = formatNumber(number, { showDecimals: true })
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should append symbol to number', () => {
+    // arrange
+    const number = 100
+    const expected = '100 kr'
+    // act
+    const result = formatNumber(number, { symbolDisplayType: 'APPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should prepend symbol to number', () => {
+    // arrange
+    const number = 100
+    const expected = 'kr100'
+    // act
+    const result = formatNumber(number, { symbolDisplayType: 'PREPEND' })
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should format 0.5 as "0,50" as with decimals', () => {
     // arrange
     const number = '0.5'
     const expected = '0,50'
@@ -258,10 +324,20 @@ describe('formatNumber() brittish', () => {
     expect(result).toEqual(expected)
   })
 
-  test('should format 5000 as "5.000,00" as default if \'showDecimals\'', () => {
+  test('should format 1000 as "1,000.00" as default if \'showDecimals\'', () => {
     // arrange
-    const number = 5000
-    const expected = '5,000.00'
+    const number = 1000
+    const expected = '1,000.00'
+    // act
+    const result = formatNumber(number, { showDecimals: true })
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should format 0.5 as "0.50" as default', () => {
+    // arrange
+    const number = '0.5'
+    const expected = '0.50'
     // act
     const result = formatNumber(number, { showDecimals: true })
     // assert
