@@ -68,7 +68,7 @@ describe('formatDate() default', () => {
   })
 })
 
-describe('formatDate() danish', () => {
+describe('formatDate() Danish', () => {
   beforeAll(() => {
     init({ isoName: 'da-DK' })
   })
@@ -102,7 +102,7 @@ describe('formatDate() danish', () => {
   })
 })
 
-describe('formatDate() swedish', () => {
+describe('formatDate() Swedish', () => {
   beforeAll(() => {
     init({ isoName: 'sv-SE' })
   })
@@ -136,7 +136,7 @@ describe('formatDate() swedish', () => {
   })
 })
 
-describe('formatDate() finnsih', () => {
+describe('formatDate() Finnsih', () => {
   beforeAll(() => {
     init({ isoName: 'fi-FI' })
   })
@@ -170,7 +170,41 @@ describe('formatDate() finnsih', () => {
   })
 })
 
-describe('formatDate()', () => {
+describe('formatDate() Norwegian (Norsk Bokmål)', () => {
+  beforeAll(() => {
+    init({ isoName: 'nb-NO' })
+  })
+  test("formatDate() should format new Date('2018-06-12') to '12.06.2018", () => {
+    // arrange
+    const date = new Date('2018-06-12')
+    const expected = '12.06.2018'
+    // act
+    const result = formatDate(date)
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test("formatDate() should prioritize 'rawFormat' if set", () => {
+    // arrange
+    const date = new Date('2018-06-12')
+    const rawFormat = 'dd MMMM'
+    const expected = '12 juni'
+    // act
+    const result = formatDate(date, { rawFormat })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test("formatDate() should format time with '.' as minute separator", () => {
+    // arrange
+    const date = new Date('2018-06-12T12:34:00')
+    const expected = '12.06.2018 kl. 12:34'
+    // act
+    const result = formatDate(date, { showTime: true })
+    // assert
+    expect(result).toEqual(expected)
+  })
+})
+
+describe('formatDate() "English"', () => {
   beforeAll(() => {
     init({ isoName: 'en-GB' })
   })
@@ -244,6 +278,16 @@ describe('formatLocalizedDate(..) 1/2', () => {
     expect(result).toEqual(expected)
   })
 
+  test('Month should be in Norwegian', () => {
+    // arrange
+    const isoLocale = 'nb-NO'
+    const expected = '2020 august man'
+    // act
+    const result = formatLocalizedDate(date1, rawFormat1, isoLocale)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
   test('Month should be in English', () => {
     // arrange
     const isoLocale = 'en-GB'
@@ -299,6 +343,16 @@ describe('formatLocalizedDate(..) 2/2', () => {
     // arrange
     const isoLocale = 'fi-FI'
     const expected = '1999 elo'
+    // act
+    const result = formatLocalizedDate(date2, rawFormat2, isoLocale)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('Month should be in Norwegian', () => {
+    // arrange
+    const isoLocale = 'nb-NO'
+    const expected = '1999 aug.'
     // act
     const result = formatLocalizedDate(date2, rawFormat2, isoLocale)
     // assert

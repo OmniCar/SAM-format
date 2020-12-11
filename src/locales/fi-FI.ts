@@ -24,7 +24,7 @@ const locale: ILocaleConfiguration = {
     numDecimals: 0,
   },
   separators: {
-    thousand: '.',
+    thousand: ' ',
     decimal: ',',
     minute: ':',
   },

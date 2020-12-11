@@ -2,6 +2,7 @@ import { defaults } from '../init/init'
 import { currentLocale } from '../init/init'
 import format, { IFormatNumberOptions } from 'format-number'
 import { IFormatNumberOptions as ISamFormatNumberOptions } from './IFormatNumberOptions'
+
 /**
  * Get formatted number
  * @param number
@@ -78,5 +79,6 @@ function getFormattedNumber(
 
     formatted = format(formatConf)(number)
   }
+
   return formatted
 }

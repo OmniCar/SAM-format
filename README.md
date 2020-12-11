@@ -17,7 +17,7 @@ First call `init` to initialize formatters (locale data etc).
 
 These parameters are available:
 
-* `isoName` - (**da-DK** | sv-SE) identifier for locale
+* `isoName` - (**da-DK** | sv-SE | fi-FI | nb-NO) identifier for locale
 
 ## Formatters
 

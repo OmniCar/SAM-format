@@ -2,17 +2,17 @@ import { ILocaleConfiguration } from '../types'
 
 const locale: ILocaleConfiguration = {
   currency: {
-    symbol: 'SEK',
+    symbol: 'NOK',
     name: {
-      long: 'kronor',
+      long: 'kroner',
       short: 'kr',
     },
     numDecimals: 2,
   },
   date: {
-    format: 'yyyy-MM-dd',
+    format: 'dd.MM.yyyy',
     name: {
-      long: 'klockan',
+      long: 'klokka',
       short: 'kl.',
     },
   },
