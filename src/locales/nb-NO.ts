@@ -5,7 +5,7 @@ const locale: ILocaleConfiguration = {
     symbol: 'NOK',
     name: {
       long: 'kroner',
-      short: 'kr.',
+      short: 'kr',
     },
     numDecimals: 2,
   },
@@ -24,7 +24,7 @@ const locale: ILocaleConfiguration = {
     numDecimals: 0,
   },
   separators: {
-    thousand: '.',
+    thousand: ' ',
     decimal: ',',
     minute: ':',
   },
