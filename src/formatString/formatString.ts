@@ -17,6 +17,15 @@ phoneMap.set('da-DK', {
   givenFormat: /(\+\d{2})?(\d{2})(\d{2})(\d{2})(\d{2})/g,
   newFormat: '$2 $3 $4 $5',
 })
+// Note: Not sure if the below formatting for sv-SE is correct, delete?
+// phoneMap.set('sv-SE', {
+//   givenFormat: /(\+\d{2})?(\d{2})(\d{3})(\d{2})(\d{2})/g,
+//   newFormat: '$2-$3 $4 $5',
+// })
+// phoneMap.set('sv-SE', {
+//   givenFormat: /(\+\d{2})?(\d{2})(\d{2})(\d{2})(\d{2})/g,
+//   newFormat: '$2 $3 $4 $5',
+// })
 phoneMap.set('sv-SE', {
   givenFormat: /(\+\d{2})?(\d{2})(\d{3})(\d{2})(\d{2})/g,
   newFormat: '$2-$3 $4 $5',
@@ -24,6 +33,10 @@ phoneMap.set('sv-SE', {
 phoneMap.set('fi-FI', {
   givenFormat: /(\+\d{3})?(\d{2})(\d{3})(\d{2})(\d{2})/g,
   newFormat: '$2-$3 $4 $5',
+})
+phoneMap.set('nb-NO', {
+  givenFormat: /(\+\d{2})?(\d{2})(\d{2})(\d{2})(\d{2})/g,
+  newFormat: '$2 $3 $4 $5',
 })
 
 /**
@@ -57,7 +70,9 @@ export function formatPhone(
   // }
   if (!formats) {
     throw Error(
-      `You requested locale "${defaults.isoName}", but there are no phone formats for that locale`,
+      `You requested locale "${
+        !isoLocale ? defaults.isoName : isoLocale
+      }", but there are no phone formats for that locale`,
     )
   }
   // Add space between area code and main number for spaced numbers.
@@ -67,7 +82,9 @@ export function formatPhone(
   if (showAreaCode) {
     newFormat = '$1' + newFormat
   }
+
   // Preprocessing: remove spaces and replace '00' with '+' in area code.
   const normalizedPhone = phone.replace(/ /g, '').replace(/^([ ]+)?00/g, '+')
+
   return normalizedPhone.replace(formats.givenFormat, newFormat.trim()).trim()
 }
