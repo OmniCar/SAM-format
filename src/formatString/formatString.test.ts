@@ -369,6 +369,110 @@ describe('formatPhone() Norwegian (Norsk Bokmål)', () => {
 })
 
 /**
+ * Tests for international standard (en-GB used)
+ * E.164 formatting (ITU-T Recommendation).
+ *
+ * In the E.164 notation all spaces, dashes [‘-‘] and parentheses [ ‘(‘ and ‘)’] are removed,
+ * besides the leading ‘+’ all characters should be numeric.
+ *
+ * Ref:
+ * https://en.wikipedia.org/wiki/E.164
+ */
+describe('formatPhone() international standard', () => {
+  beforeAll(() => {
+    init({ isoName: 'en-GB' })
+  })
+
+  test('should format a compliant phone number with area code and using default options', () => {
+    // arrange
+    const phone = '+47 11 22 33 44'
+    const expected = '+4711223344'
+    // act
+    const result = formatPhone(phone)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should format a compliant unspaced phone number with area code and using default options', () => {
+    // arrange
+    const phone = '+47112223344'
+    const expected = '+47112223344'
+    // act
+    const result = formatPhone(phone)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should format a compliant unspaced phone number without area code and using default options', () => {
+    // arrange
+    const phone = '11223344'
+    const expected = '11223344'
+    // act
+    const result = formatPhone(phone)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should format a compliant unevenly spaced phone number without area code and using default options', () => {
+    // arrange
+    const phone = '11  22 3 3    44'
+    const expected = '11223344'
+    // act
+    const result = formatPhone(phone)
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should ignore possible options and use the default', () => {
+    // arrange
+    const phone = '11 2 2  233  44'
+    const expected = '112223344'
+    // act
+    const result = formatPhone(phone, { addSpaces: true })
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should ignore possible options and use the default', () => {
+    // arrange
+    const phone = ' + 4 7 11 222 33 44 '
+    const expected = '+47112223344'
+    // act
+    const result = formatPhone(phone, { addSpaces: false, showAreaCode: false })
+    // assert
+    expect(result).toEqual(expected)
+  })
+
+  test('should ignore possible options and use the default', () => {
+    // arrange
+    const phone = '0046 (0)707-22 51 75'
+    const expected = '+46707225175'
+    // act
+    const result = formatPhone(phone, { addSpaces: false, showAreaCode: true })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test('should ignore possible options and use the default', () => {
+    // arrange
+    const phone = '0047112233 44'
+    const expected = '+4711223344'
+    // act
+    const result = formatPhone(phone, { addSpaces: true, showAreaCode: false })
+    // assert
+    expect(result).toEqual(expected)
+  })
+  test('should ignore possible options and use the default', () => {
+    // arrange
+    const phone = '  0047 11 22 33 44'
+    const expected = '+4711223344'
+    // act
+    const result = formatPhone(phone, { addSpaces: false, showAreaCode: true })
+    // assert
+    expect(result).toEqual(expected)
+  })
+})
+
+/**
  * Tests for formatting phone-numbers independently in other locales, while at
  * the same time the global locale is something else (for ex: "en-GB").
  */

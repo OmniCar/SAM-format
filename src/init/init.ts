@@ -6,7 +6,7 @@ export let currentLocale: ILocaleConfiguration
 // default options
 export let defaults: ISamFormatOptions = {
   isInitialized: false,
-  isoName: 'da-DK',
+  isoName: 'en-GB',
 }
 
 /**
