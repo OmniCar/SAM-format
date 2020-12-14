@@ -13,11 +13,11 @@ describe('initFormat()', () => {
       'Locale with iso name xx-XX was not found',
     )
   })
-  test("should default to isoName 'da-DK' ", () => {
+  test("should default to isoName 'en-GB' ", () => {
     // act
     init()
     // assert
-    expect(defaults.isoName).toEqual('da-DK')
+    expect(defaults.isoName).toEqual('en-GB')
   })
 
   test('should set locale on initialization if found: Danish - Denmark', () => {

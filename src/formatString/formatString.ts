@@ -45,46 +45,54 @@ phoneMap.set('nb-NO', {
  * will be changed into '+<area-code>' as part of the normalization.
  *
  * @param phone
- * @param options as IFormatStringOptions, default is { showAreaCode = true, addSpaces = true }
+ * @param options as IFormatStringOptions, default is { showAreaCode = true, addSpaces = true }.
+ *        NOTE: However for international (en-GB) the options is ignored.
  * @param isoLocale Format this phone-number following the rules of isoLocale given here, independently
- * of what the global locale is set to use.
+ *        of what the global locale is set to use.
+ *        If no isoLocale is given, then uses the "global" locale that is currently set.
  */
 export function formatPhone(
   phone: string,
   { showAreaCode = true, addSpaces = true } = {} as IFormatStringOptions,
-  // { showAreaCode = true, addSpaces = true } = {} as IFormatStringOptions,
   isoLocale?: IsoLocale,
 ) {
   if (!phone) {
     return phone
   }
 
-  let formats = phoneMap.get('da-DK')
-  if (!isoLocale) {
-    formats = phoneMap.get(defaults.isoName) // Use the "global" locale that is set.
+  const isInternationalFormat = isoLocale === 'en-GB' ? true : false
+  const useIsoLocale = !isoLocale ? defaults.isoName : isoLocale // Note: If no isoLocale given, then use the "global" locale that is currently set.
+
+  if (isInternationalFormat || useIsoLocale === 'en-GB') {
+    let normalizedPhone = phone.replace(/[ \-\.,()]/g, '') // Note: WITHOUT the '+' char.
+    normalizedPhone = normalizedPhone.replace(/^00/, '+') // Replace starting '00' with '+'
+    normalizedPhone = normalizedPhone.replace(/0/, '') // The first '0' is removed. (It is assumed that the leading '0' is included in the area code.)
+
+    return normalizedPhone.trim()
   } else {
-    formats = phoneMap.get(isoLocale)
-  }
-  // if (!formats) {
-  //   formats = phoneMap.get('da-DK')
-  // }
-  if (!formats) {
-    throw Error(
-      `You requested locale "${
-        !isoLocale ? defaults.isoName : isoLocale
-      }", but there are no phone formats for that locale`,
-    )
-  }
-  // Add space between area code and main number for spaced numbers.
-  let newFormat = addSpaces
-    ? ' ' + formats.newFormat
-    : formats.newFormat.replace(/[ \-+\.,]/g, '')
-  if (showAreaCode) {
-    newFormat = '$1' + newFormat
-  }
+    let formats = phoneMap.get('da-DK')
 
-  // Preprocessing: remove spaces and replace '00' with '+' in area code.
-  const normalizedPhone = phone.replace(/ /g, '').replace(/^([ ]+)?00/g, '+')
+    formats = phoneMap.get(useIsoLocale)
+    if (!formats) {
+      throw Error(
+        `You requested locale "${
+          !isoLocale ? defaults.isoName : isoLocale
+        }", but there are no phone formats for that locale`,
+      )
+    }
 
-  return normalizedPhone.replace(formats.givenFormat, newFormat.trim()).trim()
+    // Add space between area code and main number for spaced numbers.
+    let newFormat = addSpaces
+      ? ' ' + formats.newFormat
+      : formats.newFormat.replace(/[ \-+\.,]/g, '')
+
+    if (showAreaCode) {
+      newFormat = '$1' + newFormat
+    }
+
+    // Preprocessing: remove spaces and replace '00' with '+' in area code.
+    const normalizedPhone = phone.replace(/ /g, '').replace(/^([ ]+)?00/g, '+') // Note: Including the '+' char.
+
+    return normalizedPhone.replace(formats.givenFormat, newFormat.trim()).trim()
+  }
 }
