@@ -65,22 +65,14 @@ export function formatPhone(
 
   if (isInternationalFormat || useIsoLocale === 'en-GB') {
     let normalizedPhone = phone.replace(/[ \-\.,()]/g, '') // Note: WITHOUT the '+' char.
-    normalizedPhone = normalizedPhone.replace(/^00/g, '+') // Replace starting '00' with '+'
-    normalizedPhone = normalizedPhone.replace(/0?/, '') // The first '0' is removed. (It is assumed that the leading '0' is included in the area code.)
+    normalizedPhone = normalizedPhone.replace(/^00/, '+') // Replace starting '00' with '+'
+    normalizedPhone = normalizedPhone.replace(/0/, '') // The first '0' is removed. (It is assumed that the leading '0' is included in the area code.)
 
     return normalizedPhone.trim()
   } else {
     let formats = phoneMap.get('da-DK')
 
-    // if (!isoLocale) {
-    //   // formats = phoneMap.get(defaults.isoName) // Use the "global" locale that is set.
-    //   formats = phoneMap.get('da-DK')
-    // } else {
     formats = phoneMap.get(useIsoLocale)
-    // }
-    // if (!formats) {
-    //   formats = phoneMap.get('da-DK')
-    // }
     if (!formats) {
       throw Error(
         `You requested locale "${
