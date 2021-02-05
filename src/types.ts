@@ -8,6 +8,9 @@ export interface ILocaleConfiguration {
     }
     numDecimals: number
   }
+  number: {
+    numDecimals: number
+  }
   date: {
     format: string
     name: {

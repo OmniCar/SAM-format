@@ -1,16 +1,16 @@
 import { init } from '../init/init'
-import { formatNumber } from './formatNumber'
+import { formattedNumber } from './formattedNumber'
 
-describe('formatNumber()', () => {
+describe('formattedNumber()', () => {
   test('should throw error if not initialized', () => {
     // assert
     expect(() => {
-      formatNumber(0)
+      formattedNumber(0)
     }).toThrow('Formatter not initialized')
   })
 })
 
-describe('formatNumber()', () => {
+describe('formattedNumber()', () => {
   beforeAll(() => {
     init({ isoName: 'da-DK' })
   })
@@ -20,7 +20,7 @@ describe('formatNumber()', () => {
     const number = 0
     const expected = '0'
     // act
-    const result = formatNumber(number)
+    const result = formattedNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
@@ -30,7 +30,7 @@ describe('formatNumber()', () => {
     const number = 1000
     const expected = '1.000'
     // act
-    const result = formatNumber(number)
+    const result = formattedNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
@@ -40,7 +40,7 @@ describe('formatNumber()', () => {
     const number = 1000
     const expected = '1.000,00'
     // act
-    const result = formatNumber(number, { showDecimals: true })
+    const result = formattedNumber(number, { showDecimals: true })
     // assert
     expect(result).toEqual(expected)
   })
@@ -50,7 +50,7 @@ describe('formatNumber()', () => {
     const number = 100
     const expected = '100 kr.'
     // act
-    const result = formatNumber(number, { symbolDisplayType: 'APPEND' })
+    const result = formattedNumber(number, { symbolDisplayType: 'APPEND' })
     // assert
     expect(result).toEqual(expected)
   })
@@ -60,7 +60,7 @@ describe('formatNumber()', () => {
     const number = 100
     const expected = 'kr.100'
     // act
-    const result = formatNumber(number, { symbolDisplayType: 'PREPEND' })
+    const result = formattedNumber(number, { symbolDisplayType: 'PREPEND' })
     // assert
     expect(result).toEqual(expected)
   })
@@ -70,7 +70,7 @@ describe('formatNumber()', () => {
     const number = '0.5'
     const expected = '0,50'
     // act
-    const result = formatNumber(number, { showDecimals: true })
+    const result = formattedNumber(number, { showDecimals: true })
     // assert
     expect(result).toEqual(expected)
   })
@@ -80,7 +80,7 @@ describe('formatNumber()', () => {
     const number = 10.5
     const expected = '10'
     // act
-    const result = formatNumber(number, { showDecimals: false })
+    const result = formattedNumber(number, { showDecimals: false })
     // assert
     expect(result).toEqual(expected)
   })
@@ -89,19 +89,19 @@ describe('formatNumber()', () => {
     const number = '10.5'
     const expected = '10'
     // act
-    const result = formatNumber(number, { showDecimals: false })
+    const result = formattedNumber(number, { showDecimals: false })
     // assert
     expect(result).toEqual(expected)
   })
   test('should throw error if string can not be converted to number', () => {
     // assert
     expect(() => {
-      formatNumber('aaa')
+      formattedNumber('aaa')
     }).toThrow('')
   })
 })
 
-describe('formatNumber()', () => {
+describe('formattedNumber()', () => {
   beforeAll(() => {
     init({ isoName: 'sv-SE' })
   })
@@ -111,7 +111,7 @@ describe('formatNumber()', () => {
     const number = 0
     const expected = '0'
     // act
-    const result = formatNumber(number)
+    const result = formattedNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
@@ -121,7 +121,7 @@ describe('formatNumber()', () => {
     const number = 1000
     const expected = '1 000'
     // act
-    const result = formatNumber(number)
+    const result = formattedNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
@@ -131,7 +131,7 @@ describe('formatNumber()', () => {
     const number = 1000
     const expected = '1 000,00'
     // act
-    const result = formatNumber(number, { showDecimals: true })
+    const result = formattedNumber(number, { showDecimals: true })
     // assert
     expect(result).toEqual(expected)
   })
@@ -141,7 +141,7 @@ describe('formatNumber()', () => {
     const number = 100
     const expected = '100 kr'
     // act
-    const result = formatNumber(number, { symbolDisplayType: 'APPEND' })
+    const result = formattedNumber(number, { symbolDisplayType: 'APPEND' })
     // assert
     expect(result).toEqual(expected)
   })
@@ -151,7 +151,7 @@ describe('formatNumber()', () => {
     const number = 100
     const expected = 'kr100'
     // act
-    const result = formatNumber(number, { symbolDisplayType: 'PREPEND' })
+    const result = formattedNumber(number, { symbolDisplayType: 'PREPEND' })
     // assert
     expect(result).toEqual(expected)
   })
@@ -161,13 +161,13 @@ describe('formatNumber()', () => {
     const number = '0.5'
     const expected = '0,50'
     // act
-    const result = formatNumber(number, { showDecimals: true })
+    const result = formattedNumber(number, { showDecimals: true })
     // assert
     expect(result).toEqual(expected)
   })
 })
 
-describe('formatNumber()', () => {
+describe('formattedNumber()', () => {
   beforeAll(() => {
     init({ isoName: 'fi-FI' })
   })
@@ -177,7 +177,7 @@ describe('formatNumber()', () => {
     const number = 0
     const expected = '0'
     // act
-    const result = formatNumber(number)
+    const result = formattedNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
@@ -187,7 +187,7 @@ describe('formatNumber()', () => {
     const number = 1000
     const expected = '1 000'
     // act
-    const result = formatNumber(number)
+    const result = formattedNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
@@ -197,7 +197,7 @@ describe('formatNumber()', () => {
     const number = 1000
     const expected = '1 000,00'
     // act
-    const result = formatNumber(number, { showDecimals: true })
+    const result = formattedNumber(number, { showDecimals: true })
     // assert
     expect(result).toEqual(expected)
   })
@@ -207,7 +207,7 @@ describe('formatNumber()', () => {
     const number = 100
     const expected = '100 €'
     // act
-    const result = formatNumber(number, { symbolDisplayType: 'APPEND' })
+    const result = formattedNumber(number, { symbolDisplayType: 'APPEND' })
     // assert
     expect(result).toEqual(expected)
   })
@@ -217,7 +217,7 @@ describe('formatNumber()', () => {
     const number = 100
     const expected = '€100'
     // act
-    const result = formatNumber(number, { symbolDisplayType: 'PREPEND' })
+    const result = formattedNumber(number, { symbolDisplayType: 'PREPEND' })
     // assert
     expect(result).toEqual(expected)
   })
@@ -227,13 +227,13 @@ describe('formatNumber()', () => {
     const number = '0.5'
     const expected = '0,50'
     // act
-    const result = formatNumber(number, { showDecimals: true })
+    const result = formattedNumber(number, { showDecimals: true })
     // assert
     expect(result).toEqual(expected)
   })
 })
 
-describe('formatNumber()', () => {
+describe('formattedNumber()', () => {
   beforeAll(() => {
     init({ isoName: 'nb-NO' })
   })
@@ -243,7 +243,7 @@ describe('formatNumber()', () => {
     const number = 0
     const expected = '0'
     // act
-    const result = formatNumber(number)
+    const result = formattedNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
@@ -253,7 +253,7 @@ describe('formatNumber()', () => {
     const number = 1000
     const expected = '1 000'
     // act
-    const result = formatNumber(number)
+    const result = formattedNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
@@ -263,7 +263,7 @@ describe('formatNumber()', () => {
     const number = 1000
     const expected = '1 000,00'
     // act
-    const result = formatNumber(number, { showDecimals: true })
+    const result = formattedNumber(number, { showDecimals: true })
     // assert
     expect(result).toEqual(expected)
   })
@@ -273,7 +273,7 @@ describe('formatNumber()', () => {
     const number = 100
     const expected = '100 kr'
     // act
-    const result = formatNumber(number, { symbolDisplayType: 'APPEND' })
+    const result = formattedNumber(number, { symbolDisplayType: 'APPEND' })
     // assert
     expect(result).toEqual(expected)
   })
@@ -283,7 +283,7 @@ describe('formatNumber()', () => {
     const number = 100
     const expected = 'kr100'
     // act
-    const result = formatNumber(number, { symbolDisplayType: 'PREPEND' })
+    const result = formattedNumber(number, { symbolDisplayType: 'PREPEND' })
     // assert
     expect(result).toEqual(expected)
   })
@@ -293,13 +293,13 @@ describe('formatNumber()', () => {
     const number = '0.5'
     const expected = '0,50'
     // act
-    const result = formatNumber(number, { showDecimals: true })
+    const result = formattedNumber(number, { showDecimals: true })
     // assert
     expect(result).toEqual(expected)
   })
 })
 
-describe('formatNumber() brittish', () => {
+describe('formattedNumber() brittish', () => {
   beforeAll(() => {
     init({ isoName: 'en-GB' })
   })
@@ -309,7 +309,7 @@ describe('formatNumber() brittish', () => {
     const number = 0
     const expected = '0'
     // act
-    const result = formatNumber(number)
+    const result = formattedNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
@@ -319,7 +319,7 @@ describe('formatNumber() brittish', () => {
     const number = 1000
     const expected = '1,000'
     // act
-    const result = formatNumber(number)
+    const result = formattedNumber(number)
     // assert
     expect(result).toEqual(expected)
   })
@@ -329,7 +329,7 @@ describe('formatNumber() brittish', () => {
     const number = 1000
     const expected = '1,000.00'
     // act
-    const result = formatNumber(number, { showDecimals: true })
+    const result = formattedNumber(number, { showDecimals: true })
     // assert
     expect(result).toEqual(expected)
   })
@@ -339,7 +339,7 @@ describe('formatNumber() brittish', () => {
     const number = '0.5'
     const expected = '0.50'
     // act
-    const result = formatNumber(number, { showDecimals: true })
+    const result = formattedNumber(number, { showDecimals: true })
     // assert
     expect(result).toEqual(expected)
   })
