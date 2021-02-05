@@ -1,16 +1,16 @@
 import { defaults } from '../init/init'
 import { currentLocale } from '../init/init'
 import format, { IFormatNumberOptions } from 'format-number'
-import { IFormatNumberOptions as ISamFormatNumberOptions } from './IFormatNumberOptions'
+import { IFormattedNumberOptions as ISamFormattedNumberOptions } from './IFormattedNumberOptions'
 
 /**
  * Get formatted number
  * @param number
  * @param opts
  */
-export function formatNumber(
+export function formattedNumber(
   number: number | string,
-  opts?: ISamFormatNumberOptions,
+  opts?: ISamFormattedNumberOptions,
 ): string {
   if (!defaults.isInitialized) {
     const msg = 'Formatter not initialized'
@@ -38,7 +38,7 @@ export function formatNumber(
  */
 function getFormattedNumber(
   number: number,
-  opts?: ISamFormatNumberOptions,
+  opts?: ISamFormattedNumberOptions,
 ): string {
   const {
     showDecimals = false,

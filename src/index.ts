@@ -1,5 +1,5 @@
 export { formatDate, formatLocalizedDate } from './formatDate/formatDate'
-export { formatMileage } from './formatNumber/formatters/formatMileage'
-export { formatCurrency } from './formatNumber/formatters/formatCurrency'
+export { formatMileage } from './formattedNumber/formatters/formatMileage'
+export { formatCurrency } from './formattedNumber/formatters/formatCurrency'
 export { formatPhone } from './formatString/formatString'
 export { init } from './init/init'
