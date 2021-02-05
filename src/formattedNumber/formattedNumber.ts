@@ -55,7 +55,7 @@ function getFormattedNumber(
     // get right section of configuration
     const type: string = (numberType as string).toLowerCase()
     const config = (currentLocale as any)[type] // cast to any because 'type' is dynamic
-    const symbol: string = config.name.short
+    const symbol: string = numberType==='NUMBER' ? '' : config.name.short // No symbol for plain numbers.
 
     switch (symbolDisplayType) {
       case 'APPEND':
@@ -77,7 +77,12 @@ function getFormattedNumber(
     formatConf.integerSeparator = currentLocale.separators.thousand
     formatConf.decimal = currentLocale.separators.decimal
 
-    formatted = format(formatConf)(number)
+    let numberToBeFormatted = number
+    if(numberType==='NUMBER' && !showDecimals){
+      numberToBeFormatted = Math.round(number)
+    }
+
+    formatted = format(formatConf)(numberToBeFormatted)
   }
 
   return formatted

@@ -9,6 +9,9 @@ const locale: ILocaleConfiguration = {
     },
     numDecimals: 2,
   },
+  number: {
+    numDecimals: 2,
+  },
   date: {
     format: 'dd.MM.yyyy',
     name: {
