@@ -25,7 +25,7 @@ There are 3 formatters:
 
 ### formatMileage(value, [opts])
 
-`showDecimals` (true | **false**) show decimals in formatted number
+`showDecimals` (**true** | false) show decimals in formatted number
 
 `symbolDisplayType` (APPEND | PREPEND | **NONE**) where to put symbol related to number type
 
