@@ -35,6 +35,10 @@ There are 3 formatters:
 
 `symbolDisplayType` (APPEND | PREPEND | **NONE**) where to put symbol related to number type
 
+### formatNumber(value, [showDecimals])
+
+`showDecimals` (true | **false**) show decimals in formatted number
+
 ### formatDate(value, [opts])
 
 `showTime` (true | **false**) append time in formatted date
