@@ -4,13 +4,16 @@ import { currentLocale } from '../init/init'
 import { format, isValid } from 'date-fns'
 import { IFormatDateOptions } from './IFormatDateOptions'
 
+const invalidDateErrorMessage = 'Error: Invalid Date'
+const invalidDateReturnValue = '--Invalid Date--'
+
 /*
   Ref: https://date-fns.org/v2.10.0/docs/I18n
   "
     It might seem complicated to require and pass locales as options,
-    but unlike Moment.js which bloats your build with all the locales
+    but unlike Moment.js which bloats your build with all the locales,
     by default date-fns forces developer to manually require
-    locales when needed.
+    all the locales needed.
   "
 */
 import { da, sv, fi, nb, enGB } from 'date-fns/locale' // NOTE: Add new locale here, and here in getLocaleFns(..)
@@ -39,7 +42,7 @@ export function formatDate(
       date = new Date(date)
     } catch (error) {
       console.error('Error while trying to convert date string to date', error)
-      throw error
+      return invalidDateReturnValue
     }
   }
 
@@ -108,7 +111,7 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
   const { showTime = false, rawFormat = undefined } = opts || {}
   let formatted = ''
 
-  // load locale data
+  // Load locale data.
   const { date: dateConfig, separators } = currentLocale
 
   if (dateConfig && separators) {
@@ -120,11 +123,12 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
     try {
       locale = require('date-fns/locale/' + localeShort)
     } catch (error) {
+      // The formatter failed to initialize.
       console.error(error)
-      throw Error(error)
+      throw Error(error) // This is a "serious" error, throw error!
     }
 
-    // format time
+    // Format time.
     const minuteSep = separators.minute
     const timeFormat = !dateConfig.name.short
       ? `HH${minuteSep}mm`
@@ -135,7 +139,8 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
     }`
 
     if (!rawFormat && !isValid(date)) {
-      throw Error('Invalid Date')
+      console.error(invalidDateErrorMessage)
+      return invalidDateReturnValue
     }
 
     formatted = format(date, rawFormat || createdFormat, {
@@ -143,9 +148,9 @@ function getFormattedDate(date: Date, opts?: IFormatDateOptions): string {
     })
   }
 
-  // if invalid date
   if (formatted.toLowerCase().includes('invalid')) {
-    throw Error(formatted)
+    console.error(invalidDateErrorMessage)
+    return invalidDateReturnValue
   }
 
   return formatted
