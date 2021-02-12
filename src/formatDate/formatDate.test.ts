@@ -32,11 +32,23 @@ describe('formatDate() default', () => {
     expect(result).toEqual('')
   })
 
-  test('should throw error if invalid date format', () => {
+  test('should NOT CRASH (not through error) if invalid DATE intance into format', () => {
     // arrange
-    const date = new Date('aaa-aaa-aaa')
+    const dateIntance = new Date('aaa-aaa-aaa')
+    // act
+    const result = formatDate(dateIntance)
     // assert
-    expect(() => formatDate(date)).toThrow('Invalid Date')
+    expect(() => formatDate(dateIntance)).not.toThrow('Invalid Date') // Note: Should not crash/throw!
+    expect(result).toEqual('--Invalid Date--')
+  })
+  test('should NOT CRASH (not through error) if invalid STRING intance into format', () => {
+    // arrange
+    const dateString = 'aaa-aaa-aaa'
+    // act
+    const result = formatDate(dateString)
+    // assert
+    expect(() => formatDate(dateString)).not.toThrow('Invalid Date') // Note: Should not crash/throw!
+    expect(result).toEqual('--Invalid Date--')
   })
   test("should prioritize 'rawFormat' if set", () => {
     // arrange
