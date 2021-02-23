@@ -21,7 +21,7 @@ These parameters are available:
 
 ## Formatters
 
-There are 3 formatters:
+There are 4 formatters:
 
 ### formatMileage(value, [opts])
 
