@@ -1,4 +1,8 @@
-export { formatDate, formatLocalizedDate } from './formatDate/formatDate'
+export {
+  formatDate,
+  formatLocalizedDate,
+  getDateFormatInCapitalLetters,
+} from './formatDate/formatDate'
 export { formatMileage } from './formattedNumber/formatters/formatMileage'
 export { formatCurrency } from './formattedNumber/formatters/formatCurrency'
 export { formatNumber } from './formattedNumber/formatters/formatNumber'

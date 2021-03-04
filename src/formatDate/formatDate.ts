@@ -103,6 +103,15 @@ function getLocaleFns(isoLocale: IsoLocale): Locale {
 }
 
 /**
+ * Get the date format for a country.
+ * It returns the string in capital letters because some things like for example react-date-picker needs that.
+ */
+export function getDateFormatInCapitalLetters(): string {
+  const { date: dateConfig } = currentLocale
+  return dateConfig.format.toUpperCase()
+}
+
+/**
  * Get formatted date from underlying implementation
  * @param number
  * @param opts
