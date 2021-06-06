@@ -43,7 +43,7 @@
     ]
   },
   "dependencies": {
-    "date-fns": "v2.10.0",
+    "date-fns": "2.22.1",
     "format-number": "^3.0.0",
     "tslib": "^1.9.3"
   },
